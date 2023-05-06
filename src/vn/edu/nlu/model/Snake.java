@@ -7,17 +7,22 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 
+import vn.edu.nlu.model.enemy.CollisionBehavior;
+import vn.edu.nlu.model.food.EatingBehavior;
+
 public class Snake {
 	private boolean running;
 	private int bodySnake;
-	static int screenWidth;
-	static int screenHeight;
-	public static int unit_size;
-	static int GAME_UNIT;
+	private static int screenWidth;
+	private static int screenHeight;
+	private static int unit_size;
+	private static int GAME_UNIT;
 	private int[] x;
 	private int[] y;
 	private int speed;
@@ -27,38 +32,59 @@ public class Snake {
 	private ImageIcon iconHeadUp, iconHeadDown, iconHeadLeft, iconHeadRight, iconBody, iconHead;
 	private ImageIcon iconTailUp, iconTailDown, iconTailLeft, iconTailRight, iconTail;
 
+	private List<EatingBehavior> listEatingBehavior;
+	private List<CollisionBehavior> lisCollisionBehaviors;
 	public Snake(int width, int height) {
-		this.running = true;
-		this.speed = 0;
-		this.bodySnake = 3;
-		this.speed = 350;
-		this.screenWidth = width;
-		this.screenHeight = height;
-		this.unit_size = 50;
-		this.GAME_UNIT = (screenWidth * screenHeight) / (unit_size * unit_size);// the number of cells in game
-		this.x = new int[GAME_UNIT];
-		this.y = new int[GAME_UNIT];
+		running = true;
+		speed = 0;
+		bodySnake = 3;
+		speed = 500;
+		screenWidth = width;
+		screenHeight = height;
+		
+		
 
 		// Image snake
-		ManageImage manageImage = new ManageImage();
-		iconHeadUp = manageImage.getImageSnake("headUp");
-		iconHeadDown = manageImage.getImageSnake("headDown");
-		iconHeadLeft = manageImage.getImageSnake("headLeft");
-		iconHeadRight = manageImage.getImageSnake("headRight");
-		iconBody = manageImage.getImageSnake("body");
+		ImageFactory manageImage = new ImageFactory();
+		iconHeadUp = manageImage.createImageSnake("headUp");
+		iconHeadDown = manageImage.createImageSnake("headDown");
+		iconHeadLeft = manageImage.createImageSnake("headLeft");
+		iconHeadRight = manageImage.createImageSnake("headRight");
+		iconBody = manageImage.createImageSnake("body");
 
 		// head when start
 		iconHead = iconHeadLeft;
 
-		iconTailUp = manageImage.getImageSnake("tailUp");
-		iconTailDown = manageImage.getImageSnake("tailDown");
-		iconTailLeft = manageImage.getImageSnake("tailLeft");
-		iconTailRight = manageImage.getImageSnake("tailRight");
+		iconTailUp = manageImage.createImageSnake("tailUp");
+		iconTailDown = manageImage.createImageSnake("tailDown");
+		iconTailLeft = manageImage.createImageSnake("tailLeft");
+		iconTailRight = manageImage.createImageSnake("tailRight");
 
 		// tail when start
 		iconTail = iconTailRight;
 
+		unit_size = iconHeadUp.getIconWidth();
+		GAME_UNIT = (screenWidth * screenHeight) / (unit_size * unit_size);// the number of cells in game
+		x = new int[GAME_UNIT];
+		y = new int[GAME_UNIT];
+		
 		snakePositionInitial();
+	}
+
+	public static int getScreenWidth() {
+		return screenWidth;
+	}
+
+	public static int getScreenHeight() {
+		return screenHeight;
+	}
+
+	public static int getUnit_size() {
+		return unit_size;
+	}
+
+	public void setSpeed(int speed) {
+		this.speed = speed;
 	}
 
 	public void snakePositionInitial() {
@@ -69,8 +95,8 @@ public class Snake {
 			x[i] = rNum * unit_size + (i * unit_size);
 			y[i] = rNum * unit_size;
 		}
-		System.out.println(Arrays.toString(x));
-		System.out.println(Arrays.toString(y));
+//		System.out.println(Arrays.toString(x));
+//		System.out.println(Arrays.toString(y));
 	}
 
 	public void moving() {
@@ -78,21 +104,25 @@ public class Snake {
 		for (int i = bodySnake - 1; i > 0; i--) {
 			x[i] = x[i - 1];
 			y[i] = y[i - 1];
-			System.out.println(i + ":  " + x[i] + " - " + y[i]);
+//			System.out.println(i + ":  " + x[i] + " - " + y[i]);
 		}
 		// moving head
 		switch (direction) {
 		case 'U':
 			y[0] = y[0] - unit_size;
+			iconHead = iconHeadUp;
 			break;
 		case 'D':
 			y[0] = y[0] + unit_size;
+			iconHead = iconHeadDown;
 			break;
 		case 'L':
 			x[0] = x[0] - unit_size;
+			iconHead = iconHeadLeft;
 			break;
 		case 'R':
 			x[0] = x[0] + unit_size;
+			iconHead = iconHeadRight;
 			break;
 		}
 
@@ -140,6 +170,7 @@ public class Snake {
 			} else {
 				g.drawImage(iconTail.getImage(), x[i], y[i], unit_size, unit_size, null);
 			}
+			
 		}
 	}
 
@@ -181,6 +212,33 @@ public class Snake {
 		return this.speed;
 	}
 
+	public void setListEatingBehavior(List<EatingBehavior> listEatingBehavior) {
+		this.listEatingBehavior = listEatingBehavior;
+	}
+
+	public int getBodySnake() {
+		return bodySnake;
+	}
+
+	public void setBodySnake(int bodySnake) {
+		this.bodySnake = bodySnake;
+	}
+
+	public int[] getX() {
+		return x;
+	}
+
+	public int[] getY() {
+		return y;
+	}
+
+	public void eatingFood(List<EatingBehavior> list) {
+		listEatingBehavior= list;
+		for (EatingBehavior eatingBehavior : listEatingBehavior) {
+			eatingBehavior.eating(this);
+		}
+	}
+
 	public class KeyHandler implements KeyListener {
 
 		@Override
@@ -195,25 +253,22 @@ public class Snake {
 			case KeyEvent.VK_LEFT:
 				if (direction != 'R') {
 					direction = 'L';
-					iconHead = iconHeadLeft;
+					
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
 				if (direction != 'L') {
 					direction = 'R';
-					iconHead = iconHeadRight;
 				}
 				break;
 			case KeyEvent.VK_UP:
 				if (direction != 'D') {
 					direction = 'U';
-					iconHead = iconHeadUp;
 				}
 				break;
 			case KeyEvent.VK_DOWN:
 				if (direction != 'U') {
 					direction = 'D';
-					iconHead = iconHeadDown;
 				}
 				break;
 
