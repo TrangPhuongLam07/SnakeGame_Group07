@@ -32,8 +32,7 @@ public class Mushroom extends Food{
 
 	@Override
 	public void paintFood(Graphics g) {
-		ImageFactory manageImage = new ImageFactory();
-		iconHeadUp = manageImage.createImageFood("mushroom");
+		iconHeadUp = ImageFactory.createImageFood("mushroom");
 		g.drawImage(iconHeadUp.getImage(), xFood, yFood, unit_size, unit_size, null);
 		
 	}

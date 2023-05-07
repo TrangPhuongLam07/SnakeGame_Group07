@@ -2,12 +2,12 @@ package vn.edu.nlu.model;
 
 import javax.swing.ImageIcon;
 
-public class ImageFactory {
+public class  ImageFactory {
 	public ImageFactory() {
 
 	}
 
-	public ImageIcon createImageSnake(String name) {
+	public static ImageIcon createImageSnake(String name) {
 
 		// head
 		if ("headUp".equals(name))
@@ -36,7 +36,7 @@ public class ImageFactory {
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\body.png");
 	}
 
-	public ImageIcon createImageFood(String name) {
+	public static ImageIcon createImageFood(String name) {
 		//apple
 		if ("tao".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\tao.png");
@@ -63,7 +63,7 @@ public class ImageFactory {
 
 	}
 	
-	public ImageIcon createImageEnemy(String name) {
+	public static ImageIcon createImageEnemy(String name) {
 		if ("tao".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\tao.png");
 		if ("tao1".equals(name))
@@ -75,5 +75,21 @@ public class ImageFactory {
 		System.out.println("No Image");
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\body.png");
 
+	}
+	
+	public static ImageIcon createImageBackground(int level) {
+		switch (level) {
+		case 1: {
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\map_1.png");
+		}
+		case 2: {
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\map_2.jpg");
+		}
+		case 3: {
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\map_3.png");
+		}
+		default:
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\map_1.png");
+		}
 	}
 }

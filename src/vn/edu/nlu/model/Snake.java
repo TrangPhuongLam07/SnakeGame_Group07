@@ -16,13 +16,13 @@ import javax.swing.ImageIcon;
 import vn.edu.nlu.model.enemy.CollisionBehavior;
 import vn.edu.nlu.model.food.EatingBehavior;
 
-public class Snake {
+public class Snake implements Runnable {
 	private boolean running;
 	private int bodySnake;
-	private static int screenWidth;
-	private static int screenHeight;
-	private static int unit_size;
-	private static int GAME_UNIT;
+	private int screenWidth;
+	private int screenHeight;
+	private int unit_size;
+	private int GAME_UNIT;
 	private int[] x;
 	private int[] y;
 	private int speed;
@@ -34,31 +34,28 @@ public class Snake {
 
 	private List<EatingBehavior> listEatingBehavior;
 	private List<CollisionBehavior> lisCollisionBehaviors;
+
 	public Snake(int width, int height) {
 		running = true;
 		speed = 0;
-		bodySnake = 3;
-		speed = 500;
+		bodySnake = 4;
+		speed = 400;
 		screenWidth = width;
 		screenHeight = height;
-		
-		
-
 		// Image snake
-		ImageFactory manageImage = new ImageFactory();
-		iconHeadUp = manageImage.createImageSnake("headUp");
-		iconHeadDown = manageImage.createImageSnake("headDown");
-		iconHeadLeft = manageImage.createImageSnake("headLeft");
-		iconHeadRight = manageImage.createImageSnake("headRight");
-		iconBody = manageImage.createImageSnake("body");
+		iconHeadUp = ImageFactory.createImageSnake("headUp");
+		iconHeadDown = ImageFactory.createImageSnake("headDown");
+		iconHeadLeft = ImageFactory.createImageSnake("headLeft");
+		iconHeadRight = ImageFactory.createImageSnake("headRight");
+		iconBody = ImageFactory.createImageSnake("body");
 
 		// head when start
 		iconHead = iconHeadLeft;
 
-		iconTailUp = manageImage.createImageSnake("tailUp");
-		iconTailDown = manageImage.createImageSnake("tailDown");
-		iconTailLeft = manageImage.createImageSnake("tailLeft");
-		iconTailRight = manageImage.createImageSnake("tailRight");
+		iconTailUp = ImageFactory.createImageSnake("tailUp");
+		iconTailDown = ImageFactory.createImageSnake("tailDown");
+		iconTailLeft = ImageFactory.createImageSnake("tailLeft");
+		iconTailRight = ImageFactory.createImageSnake("tailRight");
 
 		// tail when start
 		iconTail = iconTailRight;
@@ -67,19 +64,19 @@ public class Snake {
 		GAME_UNIT = (screenWidth * screenHeight) / (unit_size * unit_size);// the number of cells in game
 		x = new int[GAME_UNIT];
 		y = new int[GAME_UNIT];
-		
+
 		snakePositionInitial();
 	}
 
-	public static int getScreenWidth() {
+	public int getScreenWidth() {
 		return screenWidth;
 	}
 
-	public static int getScreenHeight() {
+	public int getScreenHeight() {
 		return screenHeight;
 	}
 
-	public static int getUnit_size() {
+	public int getUnit_size() {
 		return unit_size;
 	}
 
@@ -160,8 +157,6 @@ public class Snake {
 	}
 
 	public void paintSnake(Graphics g) {
-		// TODO Auto-generated method stub
-
 		for (int i = 0; i < bodySnake; i++) {
 			if (i == 0) {
 				g.drawImage(iconHead.getImage(), x[i], y[i], unit_size, unit_size, null);
@@ -170,7 +165,7 @@ public class Snake {
 			} else {
 				g.drawImage(iconTail.getImage(), x[i], y[i], unit_size, unit_size, null);
 			}
-			
+
 		}
 	}
 
@@ -180,6 +175,14 @@ public class Snake {
 
 	public void setRunning(boolean running) {
 		this.running = running;
+	}
+
+	public void setX(int[] x) {
+		this.x = x;
+	}
+
+	public void setY(int[] y) {
+		this.y = y;
 	}
 
 	public void returnSnake() {
@@ -222,6 +225,7 @@ public class Snake {
 
 	public void setBodySnake(int bodySnake) {
 		this.bodySnake = bodySnake;
+		moving();
 	}
 
 	public int[] getX() {
@@ -232,11 +236,18 @@ public class Snake {
 		return y;
 	}
 
-	public void eatingFood(List<EatingBehavior> list) {
-		listEatingBehavior= list;
+	public void eatingFood() {
 		for (EatingBehavior eatingBehavior : listEatingBehavior) {
 			eatingBehavior.eating(this);
 		}
+	}
+
+	public void setScreenWidth(int screenWidth) {
+		this.screenWidth = screenWidth;
+	}
+
+	public void setScreenHeight(int screenHeight) {
+		this.screenHeight = screenHeight;
 	}
 
 	public class KeyHandler implements KeyListener {
@@ -253,7 +264,7 @@ public class Snake {
 			case KeyEvent.VK_LEFT:
 				if (direction != 'R') {
 					direction = 'L';
-					
+
 				}
 				break;
 			case KeyEvent.VK_RIGHT:
@@ -284,6 +295,21 @@ public class Snake {
 
 		}
 
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		try {
+			Thread.sleep(speed);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		moving();
+		returnSnake();
+		eatingFood();
+		System.out.println(speed);
 	}
 
 }

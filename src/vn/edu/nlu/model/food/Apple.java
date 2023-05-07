@@ -16,7 +16,8 @@ public class Apple extends Food{
 	@Override
 	public Snake eating(Snake snake) {
 		if((snake.getX()[0] == xFood) && (snake.getY()[0] == yFood)) {
-			snake.setBodySnake(snake.getBodySnake()+1);;
+			//set length body
+			snake.setBodySnake(snake.getBodySnake()+1);
 //			appleEating++;
 			randomFood();
 //			OnVolume.getInstance().sound("..\\Snake_Game_ver2-master\\src\\data\\eatApple.wav");
@@ -26,8 +27,7 @@ public class Apple extends Food{
 
 	@Override
 	public void paintFood(Graphics g) {
-		ImageFactory manageImage = new ImageFactory();
-		iconHeadUp = manageImage.createImageFood("tao");
+		iconHeadUp = ImageFactory.createImageFood("tao");
 		g.drawImage(iconHeadUp.getImage(), xFood, yFood, unit_size, unit_size, null);
 	}
 

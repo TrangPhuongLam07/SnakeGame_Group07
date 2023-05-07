@@ -15,8 +15,8 @@ public class Lightning extends Food{
 	@Override
 	public Snake eating(Snake snake) {
 		if((snake.getX()[0] == xFood) && (snake.getY()[0] == yFood)) {
-			if (snake.getSpeed() > 100) {
-				snake.setSpeed(snake.getSpeed()-25);
+			if (snake.getSpeed() > 150) {
+				snake.setSpeed(snake.getSpeed()-50);
 			}
 //			energyEating++;
 			randomFood();
@@ -27,8 +27,7 @@ public class Lightning extends Food{
 
 	@Override
 	public void paintFood(Graphics g) {
-		ImageFactory manageImage = new ImageFactory();
-		iconHeadUp = manageImage.createImageFood("energy");
+		iconHeadUp = ImageFactory.createImageFood("energy");
 		g.drawImage(iconHeadUp.getImage(), xFood, yFood, unit_size, unit_size, null);
 		
 	}
