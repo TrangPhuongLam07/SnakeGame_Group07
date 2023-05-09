@@ -43,9 +43,6 @@ public class GameFrame extends JFrame implements Runnable {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// close program
 	}
 
-	public void setController(ControllerSnake controller) {
-		this.controller = controller;
-	}
 
 
 	@Override

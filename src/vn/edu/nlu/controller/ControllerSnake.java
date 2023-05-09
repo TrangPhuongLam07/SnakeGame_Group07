@@ -49,6 +49,7 @@ public class ControllerSnake {
 		levelFactory = new LevelFactory(this);
 		// set level
 		snake.setListEatingBehavior(listEatingBehaviors);
+		snake.setLisCollisionBehaviors(listCollisionBehaviors);
 		screenGame = levelFactory.createLevel(this.level);
 	}
 
@@ -98,11 +99,6 @@ public class ControllerSnake {
 
 	public JPanel getScreenGame() {
 		return screenGame;
-	}
-
-	public void setEvironmentSnake(int width, int height) {
-		snake.setScreenWidth(width);
-		snake.setScreenHeight(height);
 	}
 
 	

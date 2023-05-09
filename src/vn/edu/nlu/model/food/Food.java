@@ -30,5 +30,4 @@ public abstract class Food implements EatingBehavior {
 		yFood = random.nextInt((int) (sumOfSquareHeight)) * unit_size;
 	}
 	
-	public abstract void paintFood(Graphics g);
 }

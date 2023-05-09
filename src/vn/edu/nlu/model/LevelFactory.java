@@ -7,6 +7,8 @@ import javax.swing.ImageIcon;
 
 import vn.edu.nlu.controller.ControllerSnake;
 import vn.edu.nlu.model.enemy.CollisionBehavior;
+import vn.edu.nlu.model.enemy.Swamp;
+import vn.edu.nlu.model.enemy.Wall;
 import vn.edu.nlu.model.food.Apple;
 import vn.edu.nlu.model.food.EatingBehavior;
 import vn.edu.nlu.model.food.Lightning;
@@ -33,35 +35,24 @@ public class LevelFactory {
 	}
 
 	public Level createLevel(int level) {
+
 		switch (level) {
 		case 1: {
-			createLevelEasy();
+			return new LevelEasy(control);
 		}
 		case 2: {
-			createLevelEasy();
+			return new LevelNormal(control);
 		}
 		case 3: {
-			createLevelEasy();
+			return new LevelHard(control);
 		}
 
 		default:
-			createLevelEasy();
+			return new LevelEasy(control);
 		}
-		return createLevelEasy();
 
 	}
 
-	public Level createLevelEasy() {
-		return new LevelEasy(control);
-	}
-
-	public Level createLevelNormal() {
-		return new LevelNormal(control);
-	}
-
-	public Level createLevelHard() {
-		return new LevelHard(control);
-	}
 
 	// character--------------------
 
@@ -77,7 +68,11 @@ public class LevelFactory {
 		control.getListEatingBehaviors().add(new Mushroom(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Lightning(control.getWidth(), control.getHeight(), control.getUnit()));
 
-		// Swamp
+		// enemy
+		control.getListCollisionBehaviors().add(new Swamp(control.getWidth(), control.getHeight(), control.getUnit()));
+		//random letter wall
+		control.getListCollisionBehaviors().add(new Wall(control.getWidth(), control.getHeight(), control.getUnit()));
+		
 		// speed giam theo thoi gian
 	}
 
@@ -88,7 +83,10 @@ public class LevelFactory {
 		control.getListEatingBehaviors().add(new Lightning(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Star(control.getWidth(), control.getHeight(), control.getUnit()));
 		// enemy
-//		listCollisionBehaviors.add(new Swamp(snake.getScreenWidth(), snake.getScreenHeight(), snake.getUnit_size()));
+		control.getListCollisionBehaviors().add(new Swamp(control.getWidth(), control.getHeight(), control.getUnit()));
+		//box wall
+		control.getListCollisionBehaviors().add(new Wall(control.getWidth(), control.getHeight(), control.getUnit()));
+		
 		// speed giam theo thoi gian
 
 	}

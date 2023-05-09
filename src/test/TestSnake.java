@@ -11,9 +11,10 @@ class TestSnake {
 	
 	@Test
 	public void gameframe() {
-		ControllerSnake control = new ControllerSnake(2);
+		ControllerSnake control = new ControllerSnake(3);
 		GameFrame frame = new GameFrame(control);
 		frame.run();
+		
 		
 		
 	}

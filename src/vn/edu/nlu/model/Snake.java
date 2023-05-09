@@ -84,6 +84,59 @@ public class Snake implements Runnable {
 		this.speed = speed;
 	}
 
+	public void setScreenWidth(int screenWidth) {
+		this.screenWidth = screenWidth;
+	}
+
+	public void setScreenHeight(int screenHeight) {
+		this.screenHeight = screenHeight;
+	}
+
+	public void setLisCollisionBehaviors(List<CollisionBehavior> lisCollisionBehaviors) {
+		this.lisCollisionBehaviors = lisCollisionBehaviors;
+	}
+
+	public boolean isRunning() {
+		return running;
+	}
+
+	public void setRunning(boolean running) {
+		this.running = running;
+	}
+
+	public void setX(int[] x) {
+		this.x = x;
+	}
+
+	public void setY(int[] y) {
+		this.y = y;
+	}
+
+	public int getSpeed() {
+		return this.speed;
+	}
+
+	public void setListEatingBehavior(List<EatingBehavior> listEatingBehavior) {
+		this.listEatingBehavior = listEatingBehavior;
+	}
+
+	public int getBodySnake() {
+		return bodySnake;
+	}
+
+	public void setBodySnake(int bodySnake) {
+		this.bodySnake = bodySnake;
+		moving();
+	}
+
+	public int[] getX() {
+		return x;
+	}
+
+	public int[] getY() {
+		return y;
+	}
+
 	public void snakePositionInitial() {
 		int sumOfSquare = (screenWidth / unit_size) / 2;
 		Random random = new Random();
@@ -169,22 +222,6 @@ public class Snake implements Runnable {
 		}
 	}
 
-	public boolean isRunning() {
-		return running;
-	}
-
-	public void setRunning(boolean running) {
-		this.running = running;
-	}
-
-	public void setX(int[] x) {
-		this.x = x;
-	}
-
-	public void setY(int[] y) {
-		this.y = y;
-	}
-
 	public void returnSnake() {
 		for (int i = 0; i < bodySnake; i++) {
 			if (x[i] == screenWidth) {
@@ -211,43 +248,16 @@ public class Snake implements Runnable {
 		}
 	}
 
-	public int getSpeed() {
-		return this.speed;
-	}
-
-	public void setListEatingBehavior(List<EatingBehavior> listEatingBehavior) {
-		this.listEatingBehavior = listEatingBehavior;
-	}
-
-	public int getBodySnake() {
-		return bodySnake;
-	}
-
-	public void setBodySnake(int bodySnake) {
-		this.bodySnake = bodySnake;
-		moving();
-	}
-
-	public int[] getX() {
-		return x;
-	}
-
-	public int[] getY() {
-		return y;
-	}
-
 	public void eatingFood() {
 		for (EatingBehavior eatingBehavior : listEatingBehavior) {
 			eatingBehavior.eating(this);
 		}
 	}
 
-	public void setScreenWidth(int screenWidth) {
-		this.screenWidth = screenWidth;
-	}
-
-	public void setScreenHeight(int screenHeight) {
-		this.screenHeight = screenHeight;
+	public void collisionEnemy() {
+		for (CollisionBehavior e : lisCollisionBehaviors) {
+			e.collision(this);
+		}
 	}
 
 	public class KeyHandler implements KeyListener {
@@ -309,6 +319,7 @@ public class Snake implements Runnable {
 		moving();
 		returnSnake();
 		eatingFood();
+		collisionEnemy();
 		System.out.println(speed);
 	}
 
