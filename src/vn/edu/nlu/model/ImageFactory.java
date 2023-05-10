@@ -2,7 +2,7 @@ package vn.edu.nlu.model;
 
 import javax.swing.ImageIcon;
 
-public class  ImageFactory {
+public class ImageFactory {
 	public ImageFactory() {
 
 	}
@@ -37,7 +37,7 @@ public class  ImageFactory {
 	}
 
 	public static ImageIcon createImageFood(String name) {
-		//apple
+		// apple
 		if ("tao".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\tao.png");
 		if ("tao1".equals(name))
@@ -46,23 +46,33 @@ public class  ImageFactory {
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\tao2.png");
 		if ("tao3".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\tao3.png");
-		
-		//energy
+
+		// energy
 		if ("energy".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\energy.png");
-		
-		//mushroom
+
+		// mushroom
 		if ("mushroom".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\mushroom.png");
 		if ("mushroom1".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\mushroom1.png");
 		if ("mushroom2".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\mushroom2.png");
+
+		// star
+		if ("star".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\star.png");
+		if ("star1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\star1.png");
+		if ("start2".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\start2.png");
+		if ("star3".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\star3.png");
 		System.out.println("No Image");
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\body.png");
 
 	}
-	
+
 	public static ImageIcon createImageEnemy(String name) {
 		if ("tao".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\tao.png");
@@ -72,11 +82,21 @@ public class  ImageFactory {
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\tao2.png");
 		if ("tao3".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\tao3.png");
+
+		// swamp
+		if ("swamp".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\swamp.png");
+		if ("swamp1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\swamp.png");
+		if ("swamp2".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\swamp.png");
+		if ("swamp3".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\swamp.png");
 		System.out.println("No Image");
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\body.png");
 
 	}
-	
+
 	public static ImageIcon createImageBackground(int level) {
 		switch (level) {
 		case 1: {
