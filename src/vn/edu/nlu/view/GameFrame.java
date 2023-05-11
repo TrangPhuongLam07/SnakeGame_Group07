@@ -18,7 +18,6 @@ public class GameFrame extends JFrame implements Runnable {
 	private int height;
 	private JPanel screenGame;
 	private ControllerSnake controller;
-
 	public GameFrame(ControllerSnake control) {
 		setTitle("Game Snake");
 		setSize(width, height);// 400 width and 500 height
