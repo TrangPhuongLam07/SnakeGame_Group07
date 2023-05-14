@@ -14,10 +14,10 @@ import vn.edu.nlu.model.food.EatingBehavior;
 import vn.edu.nlu.model.food.Lightning;
 import vn.edu.nlu.model.food.Mushroom;
 import vn.edu.nlu.model.food.Star;
-import vn.edu.nlu.model.level.Level;
-import vn.edu.nlu.model.level.LevelEasy;
-import vn.edu.nlu.model.level.LevelHard;
-import vn.edu.nlu.model.level.LevelNormal;
+import vn.edu.nlu.view.level.Level;
+import vn.edu.nlu.view.level.LevelEasy;
+import vn.edu.nlu.view.level.LevelHard;
+import vn.edu.nlu.view.level.LevelNormal;
 
 public class LevelFactory {
 	private ControllerSnake control;

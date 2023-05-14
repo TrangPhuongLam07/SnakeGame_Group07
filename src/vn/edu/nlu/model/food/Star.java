@@ -18,10 +18,10 @@ public class Star extends Food {
 
 	@Override
 	public Snake eating(Snake snake) {
-		// TODO Auto-generated method stub
 		// Kiểm tra xem snake có ăn được ngôi sao hay không
 		if ((snake.getX()[0] == xFood) && (snake.getY()[0] == yFood)) {
 			snake.setBodySnake(snake.getBodySnake() + 1); // Tăng độ dài của snake lên 1
+			snake.setStars(snake.getStars()+1);
 //			starEating += 10; // Tăng điểm số của snake lên 100
 //			OnVolume.getInstance().sound("..\\Snake_Game_ver2-master\\src\\data\\eatApple.wav"); // Phát âm thanh khi ăn
 			// ngôi sao

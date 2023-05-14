@@ -112,4 +112,9 @@ public class ImageFactory {
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\map_1.png");
 		}
 	}
+
+	public static ImageIcon createImageCup() {
+		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\cup.png");
+
+	}
 }

@@ -10,8 +10,10 @@ import javax.swing.JPanel;
 
 import vn.edu.nlu.model.ImageFactory;
 import vn.edu.nlu.model.LevelFactory;
+import vn.edu.nlu.model.ScoreData;
 import vn.edu.nlu.model.Snake;
 import vn.edu.nlu.model.Snake.KeyHandler;
+import vn.edu.nlu.model.Subject;
 import vn.edu.nlu.model.enemy.CollisionBehavior;
 import vn.edu.nlu.model.enemy.Swamp;
 import vn.edu.nlu.model.food.Apple;
@@ -20,6 +22,7 @@ import vn.edu.nlu.model.food.Lightning;
 import vn.edu.nlu.model.food.Mushroom;
 import vn.edu.nlu.model.food.Star;
 import vn.edu.nlu.view.GameFrame;
+import vn.edu.nlu.view.PanelNavbar;
 
 public class ControllerSnake {
 	private Snake snake;
@@ -27,7 +30,10 @@ public class ControllerSnake {
 	private List<CollisionBehavior> listCollisionBehaviors;
 
 	private LevelFactory levelFactory;
-	private JPanel screenGame;
+	private JPanel screenGame, navbar;
+
+	private Subject scoreData;
+
 	private int level;
 	private int width, height, unit;
 
@@ -51,6 +57,11 @@ public class ControllerSnake {
 		snake.setListEatingBehavior(listEatingBehaviors);
 		snake.setLisCollisionBehaviors(listCollisionBehaviors);
 		screenGame = levelFactory.createLevel(this.level);
+
+		//set navbar
+		scoreData = new ScoreData();
+		setChange();
+		navbar = new PanelNavbar(scoreData, width, height);
 	}
 
 	public int getUnit() {
@@ -101,8 +112,6 @@ public class ControllerSnake {
 		return screenGame;
 	}
 
-	
-
 	public Snake getSnake() {
 		return snake;
 	}
@@ -115,20 +124,29 @@ public class ControllerSnake {
 		snake.setSpeed(speed);
 	}
 
+	public JPanel getNavbar() {
+		return navbar;
+	}
+
 	public KeyListener getSnakeKeyHandle() {
 		return snake.new KeyHandler();
 	}
 
-
 	public void startSnake() {
 		levelFactory.createEffect(level);
+		setChange();
 	}
-	
+
 	public void paintCharacter(Graphics g) {
 		// paint Level
 		levelFactory.paintLevel(g);
 
 	}
 
+	public void setChange() {
+		scoreData.setScore(snake.getApples(), snake.getMushrooms(), snake.getStars());
+
+		scoreData.setChange();
+	}
 
 }

@@ -1,12 +1,15 @@
-package vn.edu.nlu.model.level;
+package vn.edu.nlu.view.level;
 
 import java.awt.Graphics;
 
+import javax.swing.ImageIcon;
+
 import vn.edu.nlu.controller.ControllerSnake;
+import vn.edu.nlu.model.ImageFactory;
 
-public class LevelNormal extends Level{
+public class LevelEasy extends Level{
 
-	public LevelNormal(ControllerSnake control) {
+	public LevelEasy(ControllerSnake control) {
 		super(control);
 		// TODO Auto-generated constructor stub
 	}
@@ -14,8 +17,9 @@ public class LevelNormal extends Level{
 	@Override
 	protected void paintComponent(Graphics g) {
 		// TODO Auto-generated method stub
+		super.paintComponents(g);
 		controller.paintCharacter(g);
-		System.out.println("Normal");
+		System.out.println("Easy");
 	}
 
 }

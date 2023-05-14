@@ -1,4 +1,4 @@
-package vn.edu.nlu.model.level;
+package vn.edu.nlu.view.level;
 
 import java.awt.Graphics;
 

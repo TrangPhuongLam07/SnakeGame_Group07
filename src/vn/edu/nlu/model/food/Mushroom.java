@@ -22,8 +22,7 @@ public class Mushroom extends Food{
 		}else 
 			if((snake.getX()[0] == xFood) && (snake.getY()[0] == yFood)) {
 			snake.setBodySnake(snake.getBodySnake()-1);
-//			mushroomEating++;
-//			appleEating--;
+			snake.setMushrooms(snake.getMushrooms()+1);
 			randomFood();
 //			OnVolume.getInstance().sound("..\\Snake_Game_ver2-master\\src\\data\\eatMushroom.wav");
 		}
