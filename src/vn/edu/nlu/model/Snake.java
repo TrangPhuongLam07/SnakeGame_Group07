@@ -313,6 +313,7 @@ public class Snake implements Runnable {
 			case KeyEvent.VK_LEFT:
 				if (direction != 'R') {
 					direction = 'L';
+					
 
 				}
 				break;

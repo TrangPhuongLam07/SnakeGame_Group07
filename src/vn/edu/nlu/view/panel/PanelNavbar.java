@@ -1,4 +1,4 @@
-package vn.edu.nlu.view;
+package vn.edu.nlu.view.panel;
 
 import java.awt.Color;
 import java.awt.Dimension;

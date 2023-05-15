@@ -22,7 +22,7 @@ import vn.edu.nlu.model.food.Lightning;
 import vn.edu.nlu.model.food.Mushroom;
 import vn.edu.nlu.model.food.Star;
 import vn.edu.nlu.view.GameFrame;
-import vn.edu.nlu.view.PanelNavbar;
+import vn.edu.nlu.view.panel.PanelNavbar;
 
 public class ControllerSnake {
 	private Snake snake;
@@ -58,7 +58,7 @@ public class ControllerSnake {
 		snake.setLisCollisionBehaviors(listCollisionBehaviors);
 		screenGame = levelFactory.createLevel(this.level);
 
-		//set navbar
+		// set navbar
 		scoreData = new ScoreData();
 		setChange();
 		navbar = new PanelNavbar(scoreData, width, height);
@@ -135,6 +135,7 @@ public class ControllerSnake {
 	public void startSnake() {
 		levelFactory.createEffect(level);
 		setChange();
+
 	}
 
 	public void paintCharacter(Graphics g) {
@@ -147,6 +148,14 @@ public class ControllerSnake {
 		scoreData.setScore(snake.getApples(), snake.getMushrooms(), snake.getStars());
 
 		scoreData.setChange();
+	}
+
+	public boolean getRunning() {
+		return snake.isRunning();
+	}
+
+	public void setState(boolean b) {
+		snake.setRunning(!snake.isRunning());
 	}
 
 }

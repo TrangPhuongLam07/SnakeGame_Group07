@@ -1,4 +1,4 @@
-package vn.edu.nlu.view.level;
+package vn.edu.nlu.view.panel.level;
 
 import java.awt.Dimension;
 import java.awt.Graphics;

@@ -108,6 +108,9 @@ public class ImageFactory {
 		case 3: {
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\map_3.png");
 		}
+		case 4: {
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\map_3.png");
+		}
 		default:
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\map_1.png");
 		}
@@ -117,4 +120,38 @@ public class ImageFactory {
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\cup.png");
 
 	}
+	public static ImageIcon createImageBackground() { 
+		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Background_desktop.png");
+	}
+	
+	public static ImageIcon createImageButton(String name) {
+		if ("play".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Play.png");
+		if ("level".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Level.png");
+		if ("score".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Score.png");
+		if ("options".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Options.png");
+		if ("help".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Help.png");
+		if ("exit".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Exit.png");
+		
+		if ("play1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Play1.png");
+		if ("level1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Level1.png");
+		if ("score1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Score1.png");
+		if ("options1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Options1.png");
+		if ("help1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Help1.png");
+		if ("exit1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Exit1.png");
+		System.out.println("No Image");
+		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\body.png");
+	}
+	
 }
