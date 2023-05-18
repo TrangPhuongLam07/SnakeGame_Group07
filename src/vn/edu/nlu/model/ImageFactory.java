@@ -120,10 +120,15 @@ public class ImageFactory {
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\cup.png");
 
 	}
-	public static ImageIcon createImageBackground() { 
+
+	public static ImageIcon createImageBackground() {
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Background_desktop.png");
 	}
-	
+
+	public static ImageIcon createImageBackgroundLevel() {
+		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\levelbg.png");
+	}
+
 	public static ImageIcon createImageButton(String name) {
 		if ("play".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Play.png");
@@ -137,7 +142,7 @@ public class ImageFactory {
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Help.png");
 		if ("exit".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Exit.png");
-		
+
 		if ("play1".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Play1.png");
 		if ("level1".equals(name))
@@ -150,8 +155,26 @@ public class ImageFactory {
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Help1.png");
 		if ("exit1".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\Exit1.png");
+// Level
+		if ("easy".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\easy.png");
+		if ("normal".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\normal.png");
+		if ("hard".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\hard.png");
+		if ("back".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\back.png");
+
+		if ("easy1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\easy1.png");
+		if ("normal1".equals(name)) 
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\normal1.png");
+		if ("hard1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\hard1.png");
+		if ("back1".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\back1.png");
 		System.out.println("No Image");
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\body.png");
 	}
-	
+
 }
