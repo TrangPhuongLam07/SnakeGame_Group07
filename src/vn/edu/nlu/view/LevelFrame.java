@@ -13,7 +13,7 @@ import javax.swing.SpringLayout;
 import vn.edu.nlu.controller.ControllerMenu;
 import vn.edu.nlu.controller.ControllerSnake;
 import vn.edu.nlu.model.ImageFactory;
-import vn.edu.nlu.view.panel.level.PanelLevel;
+import vn.edu.nlu.view.panel.PanelLevel;
 
 public class LevelFrame extends JFrame {
 	static final int width = 300, height = 400;
@@ -62,22 +62,18 @@ public class LevelFrame extends JFrame {
 			// TODO Auto-generated method stub
 			if (e.getSource() == pnLevel.getBtMap1()) {
 				startGameWithLevel(1);
-				dispose();
 			}
 
 			if (e.getSource() == pnLevel.getBtMap2()) {
 				startGameWithLevel(2);
-				dispose();
 			}
 
 			if (e.getSource() == pnLevel.getBtMap3()) {
 				startGameWithLevel(3);
-				dispose();
 			}
 
 			if (e.getSource() == pnLevel.getBtBack()) {
 				backMenuView();
-				dispose();
 			}
 		}
 
@@ -145,11 +141,12 @@ public class LevelFrame extends JFrame {
 
 	private void startGameWithLevel(int level) {
 		controllerSnake = new ControllerSnake(level);
-		dispose(); 
+		new GameFrame(controllerSnake);
+		this.dispose(); 
 	}
 
 	public void backMenuView() {
-		MenuFrame menuView = new MenuFrame();
-		dispose();
+		new MenuFrame();
+		this.dispose();
 	}
 }

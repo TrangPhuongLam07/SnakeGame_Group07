@@ -1,4 +1,4 @@
-package vn.edu.nlu.view.panel.level;
+package vn.edu.nlu.view.panel;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
