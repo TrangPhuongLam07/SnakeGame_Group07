@@ -173,6 +173,9 @@ public class ImageFactory {
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\hard1.png");
 		if ("back1".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\back1.png");
+		
+		if ("replay".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\replay4.png");
 		System.out.println("No Image");
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\body.png");
 	}

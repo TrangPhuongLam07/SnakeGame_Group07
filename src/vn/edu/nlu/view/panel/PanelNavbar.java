@@ -15,7 +15,7 @@ import vn.edu.nlu.model.ScoreData;
 import vn.edu.nlu.model.Subject;
 
 public class PanelNavbar extends JPanel implements Observer {
-	private JLabel lbAppleScore, lbScore, lbMushroomScore, lbStarScore;
+	private JLabel lbAppleScore, lbScore, lbMushroomScore, lbStarScore, lbBack;
 //	private JButton btVolume;
 	private int appleScore, mushroomScore, starScore, highScore;
 	private static int width, height;
@@ -60,11 +60,14 @@ public class PanelNavbar extends JPanel implements Observer {
 		lbScore.setText("" + highScore);
 		lbScore.setFont(lbScore.getFont().deriveFont(15.0f));
 		lbScore.setForeground(Color.WHITE);
+		
+		lbBack = new JLabel(ImageFactory.createImageButton("replay"));
 
 		this.add(lbAppleScore);
 		this.add(lbMushroomScore);
 		this.add(lbStarScore);
 		this.add(lbScore);
+		this.add(lbBack);
 
 		// position label
 		layout.putConstraint(SpringLayout.WEST, lbAppleScore, 10, SpringLayout.WEST, this);
@@ -76,14 +79,21 @@ public class PanelNavbar extends JPanel implements Observer {
 		layout.putConstraint(SpringLayout.WEST, lbStarScore, 110, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.NORTH, lbStarScore, 10, SpringLayout.NORTH, this);
 
-//		layout.putConstraint(SpringLayout.WEST, labelSwampScore, 170, SpringLayout.WEST, this);
-//		layout.putConstraint(SpringLayout.NORTH, labelSwampScore, 10, SpringLayout.NORTH, this);
+//		layout.putConstraint(SpringLayout.WEST, lbBack, 170, SpringLayout.WEST, this);
+//		layout.putConstraint(SpringLayout.NORTH, lbBack, 10, SpringLayout.NORTH, this);
 
 		layout.putConstraint(SpringLayout.WEST, lbScore, 300, SpringLayout.WEST, this);
 		layout.putConstraint(SpringLayout.NORTH, lbScore, 10, SpringLayout.NORTH, this);
 
 //		layout.putConstraint(SpringLayout.NORTH, btVolume, 10, SpringLayout.NORTH, this);
 //		layout.putConstraint(SpringLayout.WEST, btVolume, 360, SpringLayout.WEST, this);
+		
+		layout.putConstraint(SpringLayout.WEST, lbBack, 360, SpringLayout.WEST, this);
+		layout.putConstraint(SpringLayout.NORTH, lbBack, 5, SpringLayout.NORTH, this);
+	}
+
+	public JLabel getLbBack() {
+		return lbBack;
 	}
 
 	public void paintNavbar() {

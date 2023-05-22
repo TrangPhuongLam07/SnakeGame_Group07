@@ -38,7 +38,7 @@ public class Snake implements Runnable {
 	private int apples, mushrooms, stars;
 
 	public Snake(int width, int height) {
-		running = true;
+		running = false;
 		speed = 0;
 		bodySnake = 4;
 		speed = 400;

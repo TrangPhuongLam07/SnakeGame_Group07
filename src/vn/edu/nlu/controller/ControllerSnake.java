@@ -30,7 +30,8 @@ public class ControllerSnake {
 	private List<CollisionBehavior> listCollisionBehaviors;
 
 	private LevelFactory levelFactory;
-	private JPanel screenGame, navbar;
+	private JPanel screenGame;
+	private PanelNavbar navbar;
 
 	private Subject scoreData;
 
@@ -124,7 +125,7 @@ public class ControllerSnake {
 		snake.setSpeed(speed);
 	}
 
-	public JPanel getNavbar() {
+	public PanelNavbar getNavbar() {
 		return navbar;
 	}
 

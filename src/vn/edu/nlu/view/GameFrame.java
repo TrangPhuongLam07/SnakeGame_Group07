@@ -5,6 +5,8 @@ import java.awt.BorderLayout;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.*;
 
@@ -12,14 +14,15 @@ import javax.swing.*;
 //import controller.NavigationController;
 //import interfaceSnakeGame.VolumeState;
 import vn.edu.nlu.controller.ControllerSnake;
+import vn.edu.nlu.view.panel.PanelNavbar;
 //import volumeState.OnVolume;
 
 public class GameFrame extends JFrame implements Runnable {
 	private int width;
 	private int height;
-	private JPanel screenGame, navbar;
+	private JPanel screenGame;
+	private PanelNavbar navbar;
 	private ControllerSnake controller;
-	private Thread thread;
 
 	public GameFrame(ControllerSnake control) {
 		// set width, height
@@ -33,9 +36,6 @@ public class GameFrame extends JFrame implements Runnable {
 		Container contentPane = getContentPane();
 		controller = control;
 
-		// register listener
-		addKeyListener(controller.getSnakeKeyHandle());
-		addKeyListener(new KeyHandle());
 		// panel run game
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
@@ -47,8 +47,10 @@ public class GameFrame extends JFrame implements Runnable {
 
 		contentPane.add(panel);
 
-		thread = new Thread(this);
-		thread.start();
+		// register listener
+		addKeyListener(controller.getSnakeKeyHandle());
+		addKeyListener(new KeyHandle());
+		navbar.getLbBack().addMouseListener(new MouseHandle());
 		// set up frame
 		pack();
 		setResizable(false);
@@ -56,6 +58,7 @@ public class GameFrame extends JFrame implements Runnable {
 		setVisible(true);// making the frame visible
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// close program
 //		run();
+		new Thread(this).start();
 	}
 
 	private class KeyHandle implements KeyListener {
@@ -81,6 +84,43 @@ public class GameFrame extends JFrame implements Runnable {
 
 		}
 
+	}
+	
+	class MouseHandle implements MouseListener{
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			if (e.getSource().equals(navbar.getLbBack())) {
+				new MenuFrame();
+				dispose();
+			}
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 
 	@Override

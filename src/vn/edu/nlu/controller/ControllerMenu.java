@@ -19,7 +19,7 @@ public class ControllerMenu implements Menu {
 
 	@Override
 	public void newGame() {
-		System.out.println("New Game");
+//		System.out.println("New Game");
 		menuFrame.dispose();
 		GameFrame frame = new GameFrame(new ControllerSnake(1));
 
