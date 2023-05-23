@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.swing.*;
 
@@ -23,6 +24,7 @@ public class GameFrame extends JFrame implements Runnable {
 	private JPanel screenGame;
 	private PanelNavbar navbar;
 	private ControllerSnake controller;
+	private boolean running = true;
 
 	public GameFrame(ControllerSnake control) {
 		// set width, height
@@ -98,8 +100,7 @@ public class GameFrame extends JFrame implements Runnable {
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
 			if (e.getSource().equals(navbar.getLbBack())) {
-				new MenuFrame();
-				dispose();
+				returnButton();
 			}
 		}
 
@@ -122,11 +123,20 @@ public class GameFrame extends JFrame implements Runnable {
 		}
 		
 	}
-
+	
+	public void returnButton() {
+		this.dispose();
+		Stop();
+		new MenuFrame();
+	}
+	
+public void Stop() {
+	this.running = false;
+}
 	@Override
 	public void run() {
 		boolean running = true;
-		while (true) {
+		while (this.running) {
 			System.out.println("");
 			running = controller.getRunning();
 			if (running) {
