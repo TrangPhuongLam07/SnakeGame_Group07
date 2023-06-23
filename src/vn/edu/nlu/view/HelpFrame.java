@@ -63,7 +63,7 @@ public class HelpFrame extends JFrame{
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
 			if(e.getSource() == panelHelp.getBtBack()) {
-				ImageIcon iconBack = new ImageIcon("D:\\git\\SnakeGame_ver2\\src\\data\\back1.png");
+				ImageIcon iconBack = new ImageIcon("");
 				panelHelp.getBtBack().setIcon(iconBack);
 				panelHelp.getBtBack().setPreferredSize(new Dimension(120, 45));
 			}
@@ -73,7 +73,7 @@ public class HelpFrame extends JFrame{
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
 			if(e.getSource() == panelHelp.getBtBack()) {
-				ImageIcon iconBack = new ImageIcon("D:\\git\\SnakeGame_ver2\\src\\data\\back.png");
+				ImageIcon iconBack = new ImageIcon("");
 				panelHelp.getBtBack().setIcon(iconBack);
 				panelHelp.getBtBack().setPreferredSize(new Dimension(105, 30));
 				dispose();
