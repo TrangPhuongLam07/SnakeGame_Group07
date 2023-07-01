@@ -37,7 +37,7 @@ public class Swamp extends Enemy {
 	@Override
 	public void paintEnemy(Graphics g) {
 		// TODO Auto-generated method stub
-		iconHeadUp = ImageFactory.createImageFood("swamp");
+		iconHeadUp = ImageFactory.createImageEnemy("swamp");
 		g.drawImage(iconHeadUp.getImage(), xEnemy, yEnemy, unit_size, unit_size, null);
 	}
 
