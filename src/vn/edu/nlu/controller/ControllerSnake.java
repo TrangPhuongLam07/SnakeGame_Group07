@@ -19,7 +19,7 @@ import vn.edu.nlu.model.food.EatingBehavior;
 import vn.edu.nlu.model.food.Lightning;
 import vn.edu.nlu.model.food.Mushroom;
 import vn.edu.nlu.model.food.Star;
-import vn.edu.nlu.view.GameFrame;
+import vn.edu.nlu.view.ScreenGame;
 
 public class ControllerSnake {
 	private Snake snake;
