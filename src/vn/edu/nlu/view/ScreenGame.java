@@ -53,31 +53,4 @@ public class ScreenGame extends JFrame implements Runnable {
 		this.state = state;
 	}
 
-	public void GameFrame(ControllerSnake control) {
-		setTitle("Game Snake");
-		setSize(width, height);// 400 width and 500 height
-		setLayout(new BorderLayout());// using no layout managers
-
-		// panel run game
-		Container contentPane = getContentPane();
-		controller = control;
-		// set width, height
-		width = control.getWidth();
-		height = control.getHeight();
-		screenGame = controller.getScreenGame();
-		contentPane.add(screenGame, BorderLayout.CENTER);
-		addKeyListener(controller.getSnakeKeyHandle());
-		// set up frame
-		pack();
-		this.setVisible(true);// making the frame visible
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// close program
-	}
-
-	@Override
-	public void run() {
-		while (true) {
-			controller.startSnake();
-			repaint();
-		}
-	}
 }
