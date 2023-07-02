@@ -29,5 +29,10 @@ public abstract class Food implements EatingBehavior {
 		xFood = random.nextInt((int) (sumOfSquareWidth)) * unit_size;
 		yFood = random.nextInt((int) (sumOfSquareHeight)) * unit_size;
 	}
-	
+	public void clearFood() {
+		xFood = -200;
+		yFood = -200;
+	}
 }
+
+

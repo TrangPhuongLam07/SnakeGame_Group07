@@ -1,6 +1,5 @@
-package vn.edu.nlu.controller;
-
 import java.awt.Graphics;
+
 
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -8,18 +7,11 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-import vn.edu.nlu.model.ImageFactory;
-import vn.edu.nlu.model.LevelFactory;
 import vn.edu.nlu.model.Snake;
-import vn.edu.nlu.model.Snake.KeyHandler;
 import vn.edu.nlu.model.enemy.CollisionBehavior;
-import vn.edu.nlu.model.enemy.Swamp;
-import vn.edu.nlu.model.food.Apple;
 import vn.edu.nlu.model.food.EatingBehavior;
-import vn.edu.nlu.model.food.Lightning;
-import vn.edu.nlu.model.food.Mushroom;
-import vn.edu.nlu.model.food.Star;
-import vn.edu.nlu.view.ScreenGame;
+import vn.edu.nlu.model.level.*;
+
 
 public class ControllerSnake {
 	private Snake snake;
@@ -101,8 +93,6 @@ public class ControllerSnake {
 		return screenGame;
 	}
 
-	
-
 	public Snake getSnake() {
 		return snake;
 	}
@@ -119,16 +109,22 @@ public class ControllerSnake {
 		return snake.new KeyHandler();
 	}
 
-
 	public void startSnake() {
 		levelFactory.createEffect(level);
 	}
-	
+
 	public void paintCharacter(Graphics g) {
 		// paint Level
 		levelFactory.paintLevel(g);
 
 	}
 
+	public boolean getRunning() {
+		return snake.isRunning();
+	}
+
+	public void setState(boolean b) {
+		snake.setRunning(!snake.isRunning());
+	}
 
 }

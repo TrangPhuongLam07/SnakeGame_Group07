@@ -1,45 +1,74 @@
 package vn.edu.nlu.view;
-
 import java.awt.*;
-
 import javax.swing.*;
-
 import vn.edu.nlu.controller.ControllerSnake;
-import vn.edu.nlu.gameState.GameState;
-import vn.edu.nlu.gameState.PauseGame;
 
-public class GameFrame {
-	public int width;
-	public int height;
+
+public class GameFrame extends JFrame implements Runnable {
+	private int width;
+	private int height;
 	private JPanel screenGame;
 	private ControllerSnake controller;
-	private GameState state = PauseGame.getInstance();
-	public void GameFrame(ControllerSnake control) {
+	private boolean running = true;
+
+	public GameFrame(ControllerSnake control) {
+		// set width, height
+		width = control.getWidth();
+		height = control.getHeight();
+
 		setTitle("Game Snake");
 		setSize(width, height);// 400 width and 500 height
 		setLayout(new BorderLayout());// using no layout managers
 
-		// panel run game
 		Container contentPane = getContentPane();
 		controller = control;
-		// set width, height
-		width = control.getWidth();
-		height = control.getHeight();
+
+		// panel run game
+		JPanel panel = new JPanel();
+		panel.setLayout(new BorderLayout());
 		screenGame = controller.getScreenGame();
-		contentPane.add(screenGame, BorderLayout.CENTER);
+
+		// add panels
+		panel.add(screenGame, BorderLayout.CENTER);
+
+		contentPane.add(panel);
+
+		// register listener
 		addKeyListener(controller.getSnakeKeyHandle());
+
 		// set up frame
 		pack();
-		this.setVisible(true);// making the frame visible
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// close program
+		setResizable(false);
+		setLocationRelativeTo(null);// frame center screen
+		setVisible(true);// making the frame visible
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// close program
+//		run();
+		new Thread(this).start();
+	}
+
+
+
+	public void Stop() {
+		this.running = false;
 	}
 
 	@Override
 	public void run() {
-		while (true) {
+		boolean running = true;
+		while (this.running) {
+			try {
+				Thread.sleep(controller.getSnake().getSpeed());
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			controller.startSnake();
 			repaint();
 		}
 	}
-}
+	
+	public static void main(String[] args) {
+		new GameFrame(new ControllerSnake(3));
+	}
+
 }

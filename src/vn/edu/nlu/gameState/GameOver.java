@@ -31,8 +31,7 @@ public class GameOver implements GameState {
 	@Override
 	public boolean doAction(ScreenGame screenGame) {
 //		OnVolume.getInstance().sound("..\\SnakeGame_Group07\\src\\data\\Tieng-cuoi-troll.wav");
-//		screenGame.setState(this);
-//		return false;
+		screenGame.setState(this);
 		return false;
 	}
 }

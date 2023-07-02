@@ -1,23 +1,12 @@
 package vn.edu.nlu.model;
 
 import java.awt.Graphics;
-import java.util.List;
 
 import javax.swing.ImageIcon;
-
-import vn.edu.nlu.controller.ControllerSnake;
-import vn.edu.nlu.model.enemy.CollisionBehavior;
-import vn.edu.nlu.model.enemy.Swamp;
-import vn.edu.nlu.model.enemy.Wall;
-import vn.edu.nlu.model.food.Apple;
-import vn.edu.nlu.model.food.EatingBehavior;
-import vn.edu.nlu.model.food.Lightning;
-import vn.edu.nlu.model.food.Mushroom;
-import vn.edu.nlu.model.food.Star;
-import vn.edu.nlu.model.level.Level;
-import vn.edu.nlu.model.level.LevelEasy;
-import vn.edu.nlu.model.level.LevelHard;
-import vn.edu.nlu.model.level.LevelNormal;
+import vn.edu.nlu.controller.*;
+import vn.edu.nlu.model.enemy.*;
+import vn.edu.nlu.model.food.*;
+import vn.edu.nlu.model.level.*;
 
 public class LevelFactory {
 	private ControllerSnake control;
@@ -60,35 +49,29 @@ public class LevelFactory {
 		// food
 		control.getListEatingBehaviors().add(new Apple(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Mushroom(control.getWidth(), control.getHeight(), control.getUnit()));
+		
 	}
 
 	private void levelNormal() {
-		// food
-		control.getListEatingBehaviors().add(new Apple(control.getWidth(), control.getHeight(), control.getUnit()));
-		control.getListEatingBehaviors().add(new Mushroom(control.getWidth(), control.getHeight(), control.getUnit()));
-		control.getListEatingBehaviors().add(new Lightning(control.getWidth(), control.getHeight(), control.getUnit()));
-
-		// enemy
-		control.getListCollisionBehaviors().add(new Swamp(control.getWidth(), control.getHeight(), control.getUnit()));
-		//random letter wall
-		control.getListCollisionBehaviors().add(new Wall(control.getWidth(), control.getHeight(), control.getUnit()));
-		
-		// speed giam theo thoi gian
-	}
-
-	private void levelHard() {
-		// food
+		//food
 		control.getListEatingBehaviors().add(new Apple(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Mushroom(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Lightning(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Star(control.getWidth(), control.getHeight(), control.getUnit()));
-		// enemy
+		//enemy
 		control.getListCollisionBehaviors().add(new Swamp(control.getWidth(), control.getHeight(), control.getUnit()));
-		//box wall
 		control.getListCollisionBehaviors().add(new Wall(control.getWidth(), control.getHeight(), control.getUnit()));
-		
-		// speed giam theo thoi gian
+	}
 
+	private void levelHard() {
+		//food
+		control.getListEatingBehaviors().add(new Apple(control.getWidth(), control.getHeight(), control.getUnit()));
+		control.getListEatingBehaviors().add(new Mushroom(control.getWidth(), control.getHeight(), control.getUnit()));
+		control.getListEatingBehaviors().add(new Lightning(control.getWidth(), control.getHeight(), control.getUnit()));
+		control.getListEatingBehaviors().add(new Star(control.getWidth(), control.getHeight(), control.getUnit()));
+		//enemy
+		control.getListCollisionBehaviors().add(new Swamp(control.getWidth(), control.getHeight(), control.getUnit()));
+		control.getListCollisionBehaviors().add(new Wall(control.getWidth(), control.getHeight(), control.getUnit()));
 	}
 
 	public void createCharacterLevel(int level) {
@@ -125,16 +108,16 @@ public class LevelFactory {
 	public void createEffect(int level) {
 		switch (level) {
 		case 1: {
-			control.getSnake().run();
+			new Thread(control.getSnake()).start();
 			break;
 		}
 		case 2: {
-			control.getSnake().run();
+			new Thread(control.getSnake()).start();
 			reduceSpeed();
 			break;
 		}
 		case 3: {
-			control.getSnake().run();
+			new Thread(control.getSnake()).start();
 			reduceSpeed();
 			break;
 		}
@@ -162,7 +145,8 @@ public class LevelFactory {
 		for (CollisionBehavior e : control.getListCollisionBehaviors()) {
 			e.paintEnemy(g);
 		}
-
+		System.out.println("paint Level");
 	}
 
 }
+
