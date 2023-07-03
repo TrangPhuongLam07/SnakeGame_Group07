@@ -16,6 +16,7 @@ import javax.swing.*;
 //import interfaceSnakeGame.VolumeState;
 import vn.edu.nlu.controller.ControllerSnake;
 import vn.edu.nlu.view.panel.PanelNavbar;
+//import volumeState.OnVolume;
 
 public class GameFrame extends JFrame implements Runnable {
 	private int width;
@@ -135,7 +136,6 @@ public void Stop() {
 	@Override
 	public void run() {
 		boolean running = true;
-		
 		while (this.running) {
 			System.out.println("");
 			running = controller.getRunning();
