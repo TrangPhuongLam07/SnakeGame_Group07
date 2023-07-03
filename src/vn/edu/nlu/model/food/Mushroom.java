@@ -13,6 +13,7 @@ public class Mushroom extends Food {
 	@Override
 	public Snake eating(Snake snake) {
 		if (snake.getBodySnake() < 2) {
+
 			snake.setRunning(false);
 			System.out.println("Game Over!");
 //System.out.println("Apple eating: " + appleEating);
@@ -22,6 +23,14 @@ public class Mushroom extends Food {
 			snake.setBodySnake(snake.getBodySnake() - 1);
 //			mushroomEating++;
 //			appleEating--;
+//			running = false;
+//			System.out.println("Game Over!");
+//			System.out.println("Apple eating: " + appleEating);
+//			System.out.println("Mushroom eating: " + mushroomEating);
+		}else 
+			if((snake.getX()[0] == xFood) && (snake.getY()[0] == yFood)) {
+			snake.setBodySnake(snake.getBodySnake()-1);
+			snake.setMushrooms(snake.getMushrooms()+1);
 			randomFood();
 //			OnVolume.getInstance().sound("..\\Snake_Game_ver2-master\\src\\data\\eatMushroom.wav");
 		}

@@ -6,7 +6,20 @@ import javax.swing.ImageIcon;
 import vn.edu.nlu.controller.*;
 import vn.edu.nlu.model.enemy.*;
 import vn.edu.nlu.model.food.*;
-import vn.edu.nlu.model.level.*;
+
+import vn.edu.nlu.controller.ControllerSnake;
+import vn.edu.nlu.model.enemy.CollisionBehavior;
+import vn.edu.nlu.model.enemy.Swamp;
+import vn.edu.nlu.model.enemy.Wall;
+import vn.edu.nlu.model.food.Apple;
+import vn.edu.nlu.model.food.EatingBehavior;
+import vn.edu.nlu.model.food.Lightning;
+import vn.edu.nlu.model.food.Mushroom;
+import vn.edu.nlu.model.food.Star;
+import vn.edu.nlu.view.panel.level.Level;
+import vn.edu.nlu.view.panel.level.LevelEasy;
+import vn.edu.nlu.view.panel.level.LevelHard;
+import vn.edu.nlu.view.panel.level.LevelNormal;
 
 public class LevelFactory {
 	private ControllerSnake control;

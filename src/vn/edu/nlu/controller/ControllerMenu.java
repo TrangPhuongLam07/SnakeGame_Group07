@@ -5,6 +5,8 @@ import vn.edu.nlu.view.MenuFrame;
 import vn.edu.nlu.controller.*;
 import vn.edu.nlu.interfaceSnake.Menu;
 
+import javax.swing.JOptionPane;
+import vn.edu.nlu.view.*;
 public class ControllerMenu implements Menu {
 	private ControllerSnake controllerSnake;
 	private GameFrame gameFrame;
@@ -47,4 +49,3 @@ public class ControllerMenu implements Menu {
 	}
 
 }
-

@@ -12,7 +12,7 @@ public class Apple extends Food{
 		if((snake.getX()[0] == xFood) && (snake.getY()[0] == yFood)) {
 			//set length body
 			snake.setBodySnake(snake.getBodySnake()+1);
-//			appleEating++;
+			snake.setApples(snake.getApples()+1);
 			randomFood();
 //			OnVolume.getInstance().sound("..\\Snake_Game_ver2-master\\src\\data\\eatApple.wav");
 		}

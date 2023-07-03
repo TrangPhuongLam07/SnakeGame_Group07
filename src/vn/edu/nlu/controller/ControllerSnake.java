@@ -7,10 +7,23 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
+import vn.edu.nlu.model.ImageFactory;
+import vn.edu.nlu.model.LevelFactory;
+import vn.edu.nlu.model.ScoreData;
+
 import vn.edu.nlu.model.Snake;
+
+import vn.edu.nlu.model.Snake.KeyHandler;
+import vn.edu.nlu.model.Subject;
+
 import vn.edu.nlu.model.enemy.CollisionBehavior;
 import vn.edu.nlu.model.food.EatingBehavior;
-import vn.edu.nlu.model.level.*;
+
+import vn.edu.nlu.model.food.Lightning;
+import vn.edu.nlu.model.food.Mushroom;
+import vn.edu.nlu.model.food.Star;
+import vn.edu.nlu.view.GameFrame;
+import vn.edu.nlu.view.panel.PanelNavbar;
 
 
 public class ControllerSnake {
@@ -20,6 +33,10 @@ public class ControllerSnake {
 
 	private LevelFactory levelFactory;
 	private JPanel screenGame;
+	private PanelNavbar navbar;
+
+	private Subject scoreData;
+
 	private int level;
 	private int width, height, unit;
 
@@ -43,6 +60,11 @@ public class ControllerSnake {
 		snake.setListEatingBehavior(listEatingBehaviors);
 		snake.setLisCollisionBehaviors(listCollisionBehaviors);
 		screenGame = levelFactory.createLevel(this.level);
+
+		// set navbar
+		scoreData = (Subject) new ScoreData();
+		setChange();
+		navbar = new PanelNavbar(scoreData, width, height);
 	}
 
 	public int getUnit() {
@@ -105,12 +127,18 @@ public class ControllerSnake {
 		snake.setSpeed(speed);
 	}
 
+	public PanelNavbar getNavbar() {
+		return navbar;
+	}
+
 	public KeyListener getSnakeKeyHandle() {
 		return snake.new KeyHandler();
 	}
 
 	public void startSnake() {
 		levelFactory.createEffect(level);
+		setChange();
+
 	}
 
 	public void paintCharacter(Graphics g) {
@@ -119,6 +147,15 @@ public class ControllerSnake {
 
 	}
 
+<<<<<<< HEAD
+=======
+	public void setChange() {
+		scoreData.setScore(snake.getApples(), snake.getMushrooms(), snake.getStars());
+
+		scoreData.setChange();
+	}
+
+>>>>>>> branch 'master' of https://github.com/TrangPhuongLam07/SnakeGame_Group07.git
 	public boolean getRunning() {
 		return snake.isRunning();
 	}

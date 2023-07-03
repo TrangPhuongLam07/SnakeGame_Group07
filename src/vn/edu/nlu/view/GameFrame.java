@@ -1,13 +1,27 @@
 package vn.edu.nlu.view;
+
 import java.awt.*;
 import javax.swing.*;
-import vn.edu.nlu.controller.ControllerSnake;
+
+import vn.edu.nlu.view.panel.PanelNavbar;
+
+import java.awt.BorderLayout;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.concurrent.atomic.AtomicBoolean;
+import vn.edu.nlu.controller.*;
+import javax.swing.*;
 
 
 public class GameFrame extends JFrame implements Runnable {
 	private int width;
 	private int height;
 	private JPanel screenGame;
+	private PanelNavbar navbar;
 	private ControllerSnake controller;
 	private boolean running = true;
 
@@ -28,6 +42,7 @@ public class GameFrame extends JFrame implements Runnable {
 		panel.setLayout(new BorderLayout());
 		screenGame = controller.getScreenGame();
 
+
 		// add panels
 		panel.add(screenGame, BorderLayout.CENTER);
 
@@ -36,6 +51,18 @@ public class GameFrame extends JFrame implements Runnable {
 		// register listener
 		addKeyListener(controller.getSnakeKeyHandle());
 
+
+		navbar = controller.getNavbar();
+		// add panels
+		panel.add(navbar, BorderLayout.NORTH);
+		panel.add(screenGame, BorderLayout.CENTER);
+
+		contentPane.add(panel);
+
+		// register listener
+		addKeyListener(controller.getSnakeKeyHandle());
+		addKeyListener(new KeyHandle());
+		navbar.getLbBack().addMouseListener(new MouseHandle());
 		// set up frame
 		pack();
 		setResizable(false);
@@ -46,16 +73,82 @@ public class GameFrame extends JFrame implements Runnable {
 		new Thread(this).start();
 	}
 
+	private class KeyHandle implements KeyListener {
 
+		@Override
+		public void keyTyped(KeyEvent e) {
+			// TODO Auto-generated method stub
 
-	public void Stop() {
-		this.running = false;
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
+			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+				controller.setState(!controller.getRunning());
+				System.out.println(controller.getRunning());
+			}
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+
+		}
+
 	}
+	
+	class MouseHandle implements MouseListener{
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			if (e.getSource().equals(navbar.getLbBack())) {
+				returnButton();
+			}
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+	public void returnButton() {
+		this.dispose();
+		Stop();
+		new MenuFrame();
+	}
+	
+public void Stop() {
+	this.running = false;
+}
 
 	@Override
 	public void run() {
 		boolean running = true;
 		while (this.running) {
+
 			try {
 				Thread.sleep(controller.getSnake().getSpeed());
 			} catch (InterruptedException e) {
@@ -64,6 +157,14 @@ public class GameFrame extends JFrame implements Runnable {
 			}
 			controller.startSnake();
 			repaint();
+
+			System.out.println("");
+			running = controller.getRunning();
+			if (running) {
+				controller.startSnake();
+				repaint();
+
+			}
 		}
 	}
 	

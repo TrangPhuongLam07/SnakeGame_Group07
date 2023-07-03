@@ -1,4 +1,4 @@
-package vn.edu.nlu.model.level;
+package vn.edu.nlu.view.panel.level;
 
 import java.awt.Graphics;
 
@@ -12,8 +12,8 @@ public class LevelNormal extends Level{
 	}
 
 	@Override
-	protected void paintComponent(Graphics g) {
-		// TODO Auto-generated method stub
+	public void paintComponent(Graphics g) {
+		super.paintComponents(g);
 		controller.paintCharacter(g);
 		System.out.println("Normal");
 	}

@@ -17,7 +17,7 @@ public abstract class Food implements EatingBehavior {
 		this.screenWidth = screenWidth;
 		this.screenHeight = screenHeight;
 		this.unit_size = unit_size;
-		
+
 		random = new Random();
 		randomFood();
 
