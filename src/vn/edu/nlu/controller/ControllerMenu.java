@@ -1,12 +1,12 @@
 package vn.edu.nlu.controller;
 
-import vn.edu.nlu.view.GameFrame;
-import vn.edu.nlu.view.MenuFrame;
-import vn.edu.nlu.controller.*;
-import vn.edu.nlu.interfaceSnake.Menu;
-
 import javax.swing.JOptionPane;
-import vn.edu.nlu.view.*;
+import vn.edu.nlu.model.Menu;
+import vn.edu.nlu.view.GameFrame;
+import vn.edu.nlu.view.LevelFrame;
+import vn.edu.nlu.view.MenuFrame;
+import vn.edu.nlu.view.panel.level.LevelEasy;
+
 public class ControllerMenu implements Menu {
 	private ControllerSnake controllerSnake;
 	private GameFrame gameFrame;

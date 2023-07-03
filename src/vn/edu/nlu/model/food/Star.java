@@ -1,7 +1,6 @@
 package vn.edu.nlu.model.food;
 
 import java.awt.Graphics;
-
 import vn.edu.nlu.model.ImageFactory;
 import vn.edu.nlu.model.Snake;
 
@@ -17,14 +16,16 @@ public class Star extends Food {
 	}
 
 	public Snake eating(Snake snake) {
+		// Kiểm tra xem snake có ăn được ngôi sao hay không
 		if ((snake.getX()[0] == xFood) && (snake.getY()[0] == yFood)) {
-			snake.setBodySnake(snake.getBodySnake() + 1);
+			snake.setBodySnake(snake.getBodySnake() + 1); // Tăng độ dài của snake lên 1
 			snake.setStars(snake.getStars() + 1);
+//			starEating += 10; // Tăng điểm số của snake lên 100
 //			OnVolume.getInstance().sound("..\\Snake_Game_ver2-master\\src\\data\\eatApple.wav"); // Phát âm thanh khi ăn
 			// ngôi sao
 			starVisibleStartTime = System.currentTimeMillis(); // Cập nhật thời gian bắt đầu hiển thị ngôi sao
-			starNextAppearanceTime = starVisibleStartTime + starAppearanceInterval;
-// Cập nhật thời gian xuất hiện ngôi sao tiếp theo
+			starNextAppearanceTime = starVisibleStartTime + starAppearanceInterval; // Cập nhật thời gian xuất hiện ngôi
+																					// // sao tiếp theo
 			clearFood();
 		} else {
 			if (!isStarVisible()) {
