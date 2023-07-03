@@ -1,6 +1,7 @@
 package vn.edu.nlu.model.enemy;
 
 import java.util.Random;
+
 import javax.swing.ImageIcon;
 
 public abstract class Enemy implements CollisionBehavior {
@@ -12,6 +13,7 @@ public abstract class Enemy implements CollisionBehavior {
 		this.screenWidth = screenWidth;
 		this.screenHeight = screenHeight;
 		this.unit_size = unit_size;
+
 		random = new Random();
 		randomEnemy();
 	}

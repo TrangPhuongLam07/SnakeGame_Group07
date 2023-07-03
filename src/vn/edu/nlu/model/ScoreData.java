@@ -1,8 +1,9 @@
 package vn.edu.nlu.model;
 
 import java.util.*;
-import vn.edu.nlu.interfaceSnake.Observer;
-import vn.edu.nlu.interfaceSnake.Subject;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ScoreData implements Subject {
 	private int appleScore, mushroomScore, starScore;

@@ -1,15 +1,25 @@
 package vn.edu.nlu.controller;
 
 import java.awt.Graphics;
+
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
-import vn.edu.nlu.model.*;
-import vn.edu.nlu.model.*;
+
+import vn.edu.nlu.model.ImageFactory;
+import vn.edu.nlu.model.LevelFactory;
+import vn.edu.nlu.model.ScoreData;
+import vn.edu.nlu.model.Snake;
+import vn.edu.nlu.model.Snake.KeyHandler;
 import vn.edu.nlu.model.Subject;
-import vn.edu.nlu.model.enemy.*;
-import vn.edu.nlu.model.food.*;
+import vn.edu.nlu.model.enemy.CollisionBehavior;
+import vn.edu.nlu.model.enemy.Swamp;
+import vn.edu.nlu.model.food.Apple;
+import vn.edu.nlu.model.food.EatingBehavior;
+import vn.edu.nlu.model.food.Lightning;
+import vn.edu.nlu.model.food.Mushroom;
+import vn.edu.nlu.model.food.Star;
 import vn.edu.nlu.view.GameFrame;
 import vn.edu.nlu.view.panel.PanelNavbar;
 
@@ -45,7 +55,7 @@ public class ControllerSnake {
 		screenGame = levelFactory.createLevel(this.level);
 
 		// set navbar
-		scoreData = (Subject) new ScoreData();
+		scoreData = new ScoreData();
 		setChange();
 		navbar = new PanelNavbar(scoreData, width, height);
 	}

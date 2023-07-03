@@ -10,21 +10,23 @@ public class Swamp extends Enemy {
 	private int numDecrease;
 
 	public Swamp(int screenWidth, int screenHeight, int unit_size) {
-		super(unit_size, unit_size, unit_size);
+		super(screenWidth, screenHeight, unit_size);
 		this.numDecrease = 100;
 	}
 
 	@Override
 	public Snake collision(Snake snake) {
-		// decrease speed
+		//decrease speed
 		if ((snake.getX()[0] == xEnemy) && (snake.getY()[0] == yEnemy)) {
-			if (isSlowedDown == false) {
+			if (isSlowedDown==false) {
 				isSlowedDown = true;
 				slowDownStartTime = System.currentTimeMillis();
 				snake.setSpeed(snake.getSpeed() + numDecrease);
 			}
 			randomEnemy();
 		}
+		
+		//return speed original after 5s
 		if (isSlowedDown && System.currentTimeMillis() - slowDownStartTime >= 5000) {
 			isSlowedDown = false;
 			snake.setSpeed(snake.getSpeed() - numDecrease);
