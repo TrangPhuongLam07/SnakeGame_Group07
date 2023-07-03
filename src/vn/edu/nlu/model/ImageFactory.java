@@ -1,5 +1,5 @@
 package vn.edu.nlu.model;
-
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class ImageFactory {

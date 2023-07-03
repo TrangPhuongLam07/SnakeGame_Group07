@@ -1,7 +1,8 @@
 package vn.edu.nlu.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import vn.edu.nlu.interfaceSnake.Observer;
+import vn.edu.nlu.interfaceSnake.Subject;
 
 public class ScoreData implements Subject {
 	private int appleScore, mushroomScore, starScore;
@@ -11,7 +12,6 @@ public class ScoreData implements Subject {
 		this.appleScore = 0;
 		this.mushroomScore = 0;
 		this.starScore = 0;
-
 		observers = new ArrayList<Observer>();
 	}
 
