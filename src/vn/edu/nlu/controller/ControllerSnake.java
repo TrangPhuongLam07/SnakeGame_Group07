@@ -1,43 +1,26 @@
 package vn.edu.nlu.controller;
 
-
 import java.awt.Graphics;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JPanel;
-
-import vn.edu.nlu.model.ImageFactory;
-import vn.edu.nlu.model.LevelFactory;
-import vn.edu.nlu.model.ScoreData;
-
-import vn.edu.nlu.model.Snake;
-
-import vn.edu.nlu.model.Snake.KeyHandler;
+import vn.edu.nlu.model.*;
+import vn.edu.nlu.model.*;
 import vn.edu.nlu.model.Subject;
-
-import vn.edu.nlu.model.enemy.CollisionBehavior;
-import vn.edu.nlu.model.food.EatingBehavior;
-
-import vn.edu.nlu.model.food.Lightning;
-import vn.edu.nlu.model.food.Mushroom;
-import vn.edu.nlu.model.food.Star;
+import vn.edu.nlu.model.enemy.*;
+import vn.edu.nlu.model.food.*;
 import vn.edu.nlu.view.GameFrame;
 import vn.edu.nlu.view.panel.PanelNavbar;
-
 
 public class ControllerSnake {
 	private Snake snake;
 	private List<EatingBehavior> listEatingBehaviors;
 	private List<CollisionBehavior> listCollisionBehaviors;
-
 	private LevelFactory levelFactory;
 	private JPanel screenGame;
 	private PanelNavbar navbar;
-
 	private Subject scoreData;
-
 	private int level;
 	private int width, height, unit;
 
@@ -46,7 +29,6 @@ public class ControllerSnake {
 		height = 400;
 		snake = new Snake(width, height);
 		unit = snake.getUnit_size();
-
 		listEatingBehaviors = new ArrayList<EatingBehavior>();
 		listCollisionBehaviors = new ArrayList<CollisionBehavior>();
 
@@ -153,6 +135,7 @@ public class ControllerSnake {
 
 		scoreData.setChange();
 	}
+
 	public boolean getRunning() {
 		return snake.isRunning();
 	}
