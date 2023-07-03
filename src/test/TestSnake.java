@@ -30,6 +30,6 @@ class TestSnake {
 	public void MenuFrametTest() {
 		MenuFrame frame = new MenuFrame();
 	}
-
+    
 }
  

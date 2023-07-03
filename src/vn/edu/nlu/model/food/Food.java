@@ -1,11 +1,7 @@
 package vn.edu.nlu.model.food;
 
-import java.awt.Graphics;
 import java.util.Random;
-
 import javax.swing.ImageIcon;
-
-import vn.edu.nlu.model.ImageFactory;
 
 public abstract class Food implements EatingBehavior {
 	protected int xFood, yFood, screenWidth, screenHeight, unit_size;
@@ -17,10 +13,8 @@ public abstract class Food implements EatingBehavior {
 		this.screenWidth = screenWidth;
 		this.screenHeight = screenHeight;
 		this.unit_size = unit_size;
-
 		random = new Random();
 		randomFood();
-
 	}
 
 	public void randomFood() {

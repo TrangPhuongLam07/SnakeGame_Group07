@@ -5,7 +5,6 @@ import java.awt.Graphics;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JPanel;
 
 import vn.edu.nlu.model.ImageFactory;
@@ -28,13 +27,10 @@ public class ControllerSnake {
 	private Snake snake;
 	private List<EatingBehavior> listEatingBehaviors;
 	private List<CollisionBehavior> listCollisionBehaviors;
-
 	private LevelFactory levelFactory;
 	private JPanel screenGame;
 	private PanelNavbar navbar;
-
 	private Subject scoreData;
-
 	private int level;
 	private int width, height, unit;
 
@@ -43,7 +39,6 @@ public class ControllerSnake {
 		height = 400;
 		snake = new Snake(width, height);
 		unit = snake.getUnit_size();
-
 		listEatingBehaviors = new ArrayList<EatingBehavior>();
 		listCollisionBehaviors = new ArrayList<CollisionBehavior>();
 
@@ -130,7 +125,7 @@ public class ControllerSnake {
 	}
 
 	public KeyListener getSnakeKeyHandle() {
-		return snake.new KeyHandler();
+		return snake.new KeyHandler(null);
 	}
 
 	public void startSnake() {

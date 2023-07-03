@@ -4,12 +4,9 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
-
 import vn.edu.nlu.controller.ControllerMenu;
 import vn.edu.nlu.controller.ControllerSnake;
 import vn.edu.nlu.model.ImageFactory;
@@ -29,7 +26,7 @@ public class LevelFrame extends JFrame {
 
 		// set border layout
 		SpringLayout layout = new SpringLayout();
-  
+
 		// ----------------- Panel Content Level ----------------
 		pnLevel = new PanelLevel();
 
@@ -142,7 +139,7 @@ public class LevelFrame extends JFrame {
 	private void startGameWithLevel(int level) {
 		controllerSnake = new ControllerSnake(level);
 		new GameFrame(controllerSnake);
-		this.dispose(); 
+		this.dispose();
 	}
 
 	public void backMenuView() {

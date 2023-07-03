@@ -1,5 +1,4 @@
 package vn.edu.nlu.model.food;
-
 import java.awt.Graphics;
 
 

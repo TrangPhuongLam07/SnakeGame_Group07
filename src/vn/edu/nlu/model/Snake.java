@@ -17,7 +17,7 @@ import vn.edu.nlu.model.enemy.CollisionBehavior;
 import vn.edu.nlu.model.food.EatingBehavior;
 
 public class Snake implements Runnable {
-	private boolean running;
+	public boolean running;
 	private int bodySnake;
 	private int screenWidth;
 	private int screenHeight;
@@ -293,6 +293,11 @@ public class Snake implements Runnable {
 	}
 
 	public class KeyHandler implements KeyListener {
+		public KeyHandler(KeyEvent e) {
+			keyPressed(e);
+			keyTyped(e);
+			keyReleased(e);
+		}
 
 		@Override
 		public void keyTyped(KeyEvent e) {

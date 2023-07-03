@@ -8,7 +8,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.concurrent.atomic.AtomicBoolean;
-
 import javax.swing.*;
 
 //import abstractSnakeGame.ScreenGame;
@@ -16,7 +15,6 @@ import javax.swing.*;
 //import interfaceSnakeGame.VolumeState;
 import vn.edu.nlu.controller.ControllerSnake;
 import vn.edu.nlu.view.panel.PanelNavbar;
-
 public class GameFrame extends JFrame implements Runnable {
 	private int width;
 	private int height;
