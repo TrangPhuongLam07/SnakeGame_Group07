@@ -34,7 +34,7 @@ public class Snake implements Runnable {
 
 	private List<EatingBehavior> listEatingBehavior;
 	private List<CollisionBehavior> lisCollisionBehaviors;
-
+	
 	private int apples, mushrooms, stars;
 
 	public Snake(int width, int height) {
@@ -44,11 +44,11 @@ public class Snake implements Runnable {
 		speed = 400;
 		screenWidth = width;
 		screenHeight = height;
-
+		
 		apples = 0;
 		mushrooms = 0;
 		stars = 0;
-
+		
 		// Image snake
 		iconHeadUp = ImageFactory.createImageSnake("headUp");
 		iconHeadDown = ImageFactory.createImageSnake("headDown");
@@ -74,30 +74,37 @@ public class Snake implements Runnable {
 
 		snakePositionInitial();
 	}
+	
 
 	public int getApples() {
 		return apples;
 	}
 
+
 	public void setApples(int apples) {
 		this.apples = apples;
 	}
+
 
 	public int getMushrooms() {
 		return mushrooms;
 	}
 
+
 	public void setMushrooms(int mushrooms) {
 		this.mushrooms = mushrooms;
 	}
+
 
 	public int getStars() {
 		return stars;
 	}
 
+
 	public void setStars(int stars) {
 		this.stars = stars;
 	}
+
 
 	public int getScreenWidth() {
 		return screenWidth;
@@ -282,7 +289,7 @@ public class Snake implements Runnable {
 	public void eatingFood() {
 		for (EatingBehavior eatingBehavior : listEatingBehavior) {
 			eatingBehavior.eating(this);
-
+			
 		}
 	}
 
@@ -311,6 +318,7 @@ public class Snake implements Runnable {
 			case KeyEvent.VK_LEFT:
 				if (direction != 'R') {
 					direction = 'L';
+					
 
 				}
 				break;

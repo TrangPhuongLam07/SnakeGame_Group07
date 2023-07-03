@@ -35,6 +35,7 @@ public class LevelFrame extends JFrame {
 		pnLevel.getBtMap3().addMouseListener(new MouseHandle());
 		pnLevel.getBtBack().addMouseListener(new MouseHandle());
 
+		setContentPane(new PanelBackground());
 		layout.putConstraint(SpringLayout.NORTH, pnLevel, this.height / 5, SpringLayout.NORTH, this);
 		layout.putConstraint(SpringLayout.WEST, pnLevel, this.width / 4, SpringLayout.WEST, this);
 		setLayout(layout);
