@@ -6,13 +6,13 @@ import vn.edu.nlu.view.MenuFrame;
 
 public class Run {
 	public static void main(String[] args) {
-		GameFrame frame = new GameFrame(new ControllerSnake(1));
-		frame.run();
+//		GameFrame frame = new GameFrame(new ControllerSnake(1));
+//		frame.run();
 		
 		MenuFrame menuframe = new MenuFrame();
-		new LevelFrame();
+//		new LevelFrame();
 //		
-		ControllerMenu controllerMenu = new ControllerMenu(menuframe);
-		controllerMenu.newGame();
+//		ControllerMenu controllerMenu = new ControllerMenu(menuframe);
+//		controllerMenu.newGame();
 	}
 }

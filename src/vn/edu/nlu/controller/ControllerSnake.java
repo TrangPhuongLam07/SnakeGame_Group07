@@ -1,7 +1,7 @@
 package vn.edu.nlu.controller;
 
 import java.awt.Graphics;
-
+import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -125,7 +125,7 @@ public class ControllerSnake {
 	}
 
 	public KeyListener getSnakeKeyHandle() {
-		return snake.new KeyHandler(null);
+		return snake.new KeyHandler();
 	}
 
 	public void startSnake() {

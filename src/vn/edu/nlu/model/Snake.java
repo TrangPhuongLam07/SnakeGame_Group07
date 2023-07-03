@@ -305,6 +305,10 @@ public class Snake implements Runnable {
 			keyTyped(e);
 			keyReleased(e);
 		}
+		
+		public KeyHandler() {
+			
+		}
 
 		@Override
 		public void keyTyped(KeyEvent e) {
