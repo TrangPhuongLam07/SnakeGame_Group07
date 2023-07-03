@@ -5,7 +5,7 @@
  * @author dell
  *
  */
-module SnakeGameV2 {
+module SnakeGame_G7 {
 	requires java.desktop;
 
 	

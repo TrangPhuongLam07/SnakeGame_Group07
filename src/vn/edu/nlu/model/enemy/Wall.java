@@ -2,6 +2,7 @@ package vn.edu.nlu.model.enemy;
 
 import java.awt.Graphics;
 
+
 import vn.edu.nlu.model.ImageFactory;
 import vn.edu.nlu.model.Snake;
 
@@ -26,6 +27,7 @@ public class Wall extends Enemy{
 		// TODO Auto-generated method stub
 		iconHeadUp = ImageFactory.createImageFood("wall");
 		g.drawImage(iconHeadUp.getImage(), xEnemy, yEnemy, unit_size, unit_size, null);
+
 	}
 
 }
