@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import vn.edu.nlu.model.Snake;
 public class BodyCollision extends Enemy {
 	public BodyCollision(int screenWidth, int screenHeight, int unit_size) {
-		super();
+		super(unit_size, unit_size, unit_size);
 	}
 	@Override
 	public Snake collision(Snake snake) {

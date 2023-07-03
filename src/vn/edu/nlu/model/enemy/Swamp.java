@@ -10,7 +10,7 @@ public class Swamp extends Enemy {
 	private int numDecrease;
 
 	public Swamp(int screenWidth, int screenHeight, int unit_size) {
-		super();
+		super(unit_size, unit_size, unit_size);
 		this.numDecrease = 100;
 	}
 

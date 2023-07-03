@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import vn.edu.nlu.model.*;
 public class Wall extends Enemy{
 	public Wall(int screenWidth, int screenHeight, int unit_size) {
-		super(screenWidth, screenHeight, unit_size);
+		super(unit_size, unit_size, unit_size);
 		// TODO Auto-generated constructor stub
 	}
 	@Override

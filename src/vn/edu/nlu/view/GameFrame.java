@@ -104,7 +104,7 @@ public class GameFrame extends JFrame implements Runnable {
 
 		}
 
-		class MouseHandle implements MouseListener {
+		public class MouseHandle implements MouseListener {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -181,12 +181,14 @@ public class GameFrame extends JFrame implements Runnable {
 	@Override
 	public void run() {
 		boolean running = true;
-		
+
 		while (this.running) {
 			System.out.println("");
 			running = controller.getRunning();
 			if (running) {
 				controller.startSnake();
 				repaint();
+			}
+		}
 	}
 }
