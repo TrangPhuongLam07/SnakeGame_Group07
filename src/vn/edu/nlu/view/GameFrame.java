@@ -10,8 +10,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 //import controller.NavigationController;
 //import interfaceSnakeGame.VolumeState;
 import vn.edu.nlu.controller.ControllerSnake;
-import vn.edu.nlu.view.panel.PanelNavbar;
-
 //import volumeState.OnVolume;
 public class GameFrame extends JFrame implements Runnable {
 	private int width;
@@ -181,7 +179,13 @@ public class GameFrame extends JFrame implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-
+		boolean running = true;
+		
+		while (this.running) {
+			System.out.println("");
+			running = controller.getRunning();
+			if (running) {
+				controller.startSnake();
+				repaint();
 	}
 }
