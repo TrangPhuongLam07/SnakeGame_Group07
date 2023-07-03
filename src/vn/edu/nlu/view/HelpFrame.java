@@ -2,14 +2,11 @@ package vn.edu.nlu.view;
 
 import java.awt.Dimension;
 import java.awt.event.*;
-
 import javax.swing.*;
-
 import vn.edu.nlu.view.panel.*;
 
+public class HelpFrame extends JFrame {
 
-public class HelpFrame extends JFrame{
-	
 	private PanelHelp panelHelp;
 	static final int WIDTH = 530, HEIGHT = 646;
 
@@ -23,43 +20,41 @@ public class HelpFrame extends JFrame{
 		// set borderLayout.
 		SpringLayout layout = new SpringLayout();
 
-		//-------------- Panel Background Help -----------------
+		// -------------- Panel Background Help -----------------
 		panelHelp = new PanelHelp();
-		
+
 		setContentPane(panelHelp);
-		
-		
-		//----------------- Panel Content Help ----------------------
+
+		// ----------------- Panel Content Help ----------------------
 		panelHelp = new PanelHelp();
 		panelHelp.getBtBack().addMouseListener(new handler());
-				
-				
+
 		layout.putConstraint(SpringLayout.SOUTH, panelHelp, 500, SpringLayout.SOUTH, this);
 		layout.putConstraint(SpringLayout.WEST, panelHelp, 200, SpringLayout.WEST, this);
-		
+
 		add(panelHelp);
 		setLayout(layout);
 		setVisible(true);
 	}
-	
+
 	public HelpFrame() {
 		this(WIDTH, HEIGHT);
 	}
-	private class handler implements MouseListener{
+
+	private class handler implements MouseListener {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			// TODO Auto-generated method stub
-			if(e.getSource() == panelHelp.getBtBack()) {
+			if (e.getSource() == panelHelp.getBtBack()) {
 				backMenuView();
 			}
 		}
 
-		
 		@Override
 		public void mouseEntered(MouseEvent e) {
 			// TODO Auto-generated method stub
-			if(e.getSource() == panelHelp.getBtBack()) {
+			if (e.getSource() == panelHelp.getBtBack()) {
 				ImageIcon iconBack = new ImageIcon("");
 				panelHelp.getBtBack().setIcon(iconBack);
 				panelHelp.getBtBack().setPreferredSize(new Dimension(120, 45));
@@ -69,7 +64,7 @@ public class HelpFrame extends JFrame{
 		@Override
 		public void mouseExited(MouseEvent e) {
 			// TODO Auto-generated method stub
-			if(e.getSource() == panelHelp.getBtBack()) {
+			if (e.getSource() == panelHelp.getBtBack()) {
 				ImageIcon iconBack = new ImageIcon("");
 				panelHelp.getBtBack().setIcon(iconBack);
 				panelHelp.getBtBack().setPreferredSize(new Dimension(105, 30));
@@ -77,26 +72,21 @@ public class HelpFrame extends JFrame{
 			}
 		}
 
-
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
-		}
 
+		}
 
 		@Override
 		public void mouseReleased(MouseEvent e) {
 			// TODO Auto-generated method stub
-			
+
 		}
-		
+
 		public void backMenuView() {
 			new MenuFrame();
 //			this.dispose();
 		}
 	}
 }
-
-
-

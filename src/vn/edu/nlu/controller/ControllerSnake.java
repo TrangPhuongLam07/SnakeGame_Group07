@@ -115,7 +115,7 @@ public class ControllerSnake {
 	}
 
 	public KeyListener getSnakeKeyHandle() {
-		return snake.new KeyHandler();
+		return snake.new KeyHandler(null);
 	}
 
 	public void startSnake() {

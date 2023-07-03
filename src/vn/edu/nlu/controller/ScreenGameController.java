@@ -1,34 +1,19 @@
 package vn.edu.nlu.controller;
 import java.awt.*;
+import java.awt.event.*;
+
 import javax.swing.ImageIcon;
 import vn.edu.nlu.model.Snake;
 import vn.edu.nlu.view.ScreenGame;
-
-
-
-
+import vn.edu.nlu.view.panel.PanelReplayGame;
 public class ScreenGameController {
 	static ScreenGame screenGame;
 	public static Snake snake;
-
-	private EatingContext snakeEatingContext;
-	private CollisionContext snakeCollisionContext;
-	private PaintMapObserver paintMapObserver;
-	private PlayerChose playerChose;
-	
-
 	public ScreenGameController(ScreenGame screenGame) {
 		super();
 		this.screenGame = screenGame;
 		
 		snake = new Snake(screenGame.width, screenGame.height);
-
-		snakeEatingContext = new EatingContext(snake);
-		snakeCollisionContext = new CollisionContext(snake);
-		
-		playerChose = new PlayerChose();
-		paintMapObserver = new PaintMap_ver1(playerChose, snake);
-		
 	}
 	
 	public ScreenGameController() {
@@ -36,21 +21,18 @@ public class ScreenGameController {
 	}
 	
 	
-	public void paintMap(Graphics g, String playerDecoratorName, String paintMapName) {
-		playerChose.setPlayerDecoratorName(playerDecoratorName);
-		paintMapObserver.chosePaintMap(g, paintMapName);
-	}
+//	public void paintMap(Graphics g, String playerDecoratorName, String paintMapName) {
+//		playerChose.setPlayerDecoratorName(playerDecoratorName);
+//		paintMapObserver.chosePaintMap(g, paintMapName);
+//	}
 
 
 	public void startSnake() {
 		if(snake.running) {
 			snake.moving();
-			snakeEatingContext.excuteEating(paintMapObserver.getApple(), 
-					paintMapObserver.getMushroom(), paintMapObserver.getEnergy());
-			
-			snakeCollisionContext.excuteCollision(paintMapObserver.getWall(), 
-					paintMapObserver.getSwamp());
-			snake.returnSnake();
+			snake.eatingFood();
+			snake.collisionEnemy();
+		snake.returnSnake();
 		}
 	}
 	
@@ -65,7 +47,7 @@ public class ScreenGameController {
 	}
 	
 	public void snakeKeyPress(KeyEvent e) {
-		Snake.HandlerKeyPress handlerKeyPress = snake.new HandlerKeyPress(e);
+		Snake.KeyHandler handlerKeyPress = snake.new KeyHandler(e);
 		System.out.println("snake key press");
 	}
 	
@@ -80,10 +62,4 @@ public class ScreenGameController {
 	public static Snake getSnake() {
 		return snake;
 	}
-
-
-
-	
-	
-	
 }
