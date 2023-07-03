@@ -1,7 +1,6 @@
 package vn.edu.nlu.model.enemy;
 
 import java.awt.Graphics;
-
 import vn.edu.nlu.model.ImageFactory;
 import vn.edu.nlu.model.Snake;
 
@@ -39,6 +38,6 @@ public class Swamp extends Enemy {
 		// TODO Auto-generated method stub
 		iconHeadUp = ImageFactory.createImageEnemy("swamp");
 		g.drawImage(iconHeadUp.getImage(), xEnemy, yEnemy, unit_size, unit_size, null);
-	}
 
+	}
 }

@@ -1,21 +1,17 @@
 package vn.edu.nlu.view;
 
 import java.awt.BorderLayout;
-
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import vn.edu.nlu.controller.ControllerMenu;
-import vn.edu.nlu.controller.ControllerSnake;
 import vn.edu.nlu.model.ImageFactory;
 import vn.edu.nlu.view.panel.PanelMenu;
 
-public class MenuFrame extends JFrame{
+public class MenuFrame extends JFrame {
 	static final int WIDTH = 530, HEIGHT = 646;
 	private PanelMenu pnMenu;
 	private ControllerMenu controllerMenu;
@@ -23,7 +19,6 @@ public class MenuFrame extends JFrame{
 	public MenuFrame() {
 		setTitle("Snake Game");
 		setSize(new Dimension(WIDTH, HEIGHT));
-
 		controllerMenu = new ControllerMenu(this);
 		// panel
 		pnMenu = new PanelMenu();
@@ -32,10 +27,7 @@ public class MenuFrame extends JFrame{
 		pnMenu.getBtScore().addMouseListener(new MouseHandle());
 		pnMenu.getBtHelp().addMouseListener(new MouseHandle());
 		pnMenu.getBtExit().addMouseListener(new MouseHandle());
-
 		setContentPane(new PanelBackground());
-
-		
 		add(pnMenu, BorderLayout.CENTER);
 		setLocationRelativeTo(null);// frame center screen
 		setVisible(true);
@@ -50,9 +42,7 @@ public class MenuFrame extends JFrame{
 		}
 	}
 
-
 	private class MouseHandle implements MouseListener {
-
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			if (e.getSource().equals(pnMenu.getBtPlay())) {
@@ -74,8 +64,6 @@ public class MenuFrame extends JFrame{
 			if (e.getSource() == pnMenu.getBtExit()) {
 				controllerMenu.exitGame();
 			}
-			
-			
 		}
 
 		@Override
@@ -145,8 +133,5 @@ public class MenuFrame extends JFrame{
 				pnMenu.getBtExit().setPreferredSize(new Dimension(105, 30));
 			}
 		}
-
 	}
-
-
 }
