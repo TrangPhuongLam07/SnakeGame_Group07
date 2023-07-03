@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+import vn.edu.nlu.interfaceSnake.GameState;
 import vn.edu.nlu.view.ScreenGame;
 public class PauseGame implements GameState{
 	private static PauseGame instance = new PauseGame();

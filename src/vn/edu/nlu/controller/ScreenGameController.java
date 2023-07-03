@@ -1,8 +1,5 @@
 package vn.edu.nlu.controller;
-import java.awt.*;
 import java.awt.event.*;
-
-import javax.swing.ImageIcon;
 import vn.edu.nlu.model.Snake;
 import vn.edu.nlu.view.ScreenGame;
 import vn.edu.nlu.view.panel.PanelReplayGame;

@@ -1,6 +1,8 @@
 package vn.edu.nlu.gameState;
 
 import java.awt.Graphics;
+
+import vn.edu.nlu.interfaceSnake.GameState;
 import vn.edu.nlu.view.ScreenGame;
 public class StartGame implements GameState{
 	private static StartGame instance = new StartGame();

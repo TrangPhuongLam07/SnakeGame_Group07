@@ -1,4 +1,4 @@
-package vn.edu.nlu.gameState;
+package vn.edu.nlu.interfaceSnake;
 
 import java.awt.Graphics;
 import vn.edu.nlu.view.ScreenGame;
