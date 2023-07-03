@@ -1,11 +1,9 @@
 package vn.edu.nlu.model;
 
 import java.awt.Graphics;
+import java.util.List;
 
 import javax.swing.ImageIcon;
-import vn.edu.nlu.controller.*;
-import vn.edu.nlu.model.enemy.*;
-import vn.edu.nlu.model.food.*;
 
 import vn.edu.nlu.controller.ControllerSnake;
 import vn.edu.nlu.model.enemy.CollisionBehavior;
@@ -62,29 +60,35 @@ public class LevelFactory {
 		// food
 		control.getListEatingBehaviors().add(new Apple(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Mushroom(control.getWidth(), control.getHeight(), control.getUnit()));
-		
 	}
 
 	private void levelNormal() {
-		//food
+		// food
 		control.getListEatingBehaviors().add(new Apple(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Mushroom(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Lightning(control.getWidth(), control.getHeight(), control.getUnit()));
-		control.getListEatingBehaviors().add(new Star(control.getWidth(), control.getHeight(), control.getUnit()));
-		//enemy
+
+		// enemy
 		control.getListCollisionBehaviors().add(new Swamp(control.getWidth(), control.getHeight(), control.getUnit()));
+		//random letter wall
 		control.getListCollisionBehaviors().add(new Wall(control.getWidth(), control.getHeight(), control.getUnit()));
+		
+		// speed giam theo thoi gian
 	}
 
 	private void levelHard() {
-		//food
+		// food
 		control.getListEatingBehaviors().add(new Apple(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Mushroom(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Lightning(control.getWidth(), control.getHeight(), control.getUnit()));
 		control.getListEatingBehaviors().add(new Star(control.getWidth(), control.getHeight(), control.getUnit()));
-		//enemy
+		// enemy
 		control.getListCollisionBehaviors().add(new Swamp(control.getWidth(), control.getHeight(), control.getUnit()));
+		//box wall
 		control.getListCollisionBehaviors().add(new Wall(control.getWidth(), control.getHeight(), control.getUnit()));
+		
+		// speed giam theo thoi gian
+
 	}
 
 	public void createCharacterLevel(int level) {
@@ -121,16 +125,16 @@ public class LevelFactory {
 	public void createEffect(int level) {
 		switch (level) {
 		case 1: {
-			new Thread(control.getSnake()).start();
+			control.getSnake().run();
 			break;
 		}
 		case 2: {
-			new Thread(control.getSnake()).start();
+			control.getSnake().run();
 			reduceSpeed();
 			break;
 		}
 		case 3: {
-			new Thread(control.getSnake()).start();
+			control.getSnake().run();
 			reduceSpeed();
 			break;
 		}
@@ -162,4 +166,3 @@ public class LevelFactory {
 	}
 
 }
-
