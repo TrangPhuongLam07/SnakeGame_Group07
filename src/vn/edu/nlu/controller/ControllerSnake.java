@@ -1,6 +1,7 @@
+package vn.edu.nlu.controller;
+
+
 import java.awt.Graphics;
-
-
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
@@ -147,15 +148,11 @@ public class ControllerSnake {
 
 	}
 
-<<<<<<< HEAD
-=======
 	public void setChange() {
 		scoreData.setScore(snake.getApples(), snake.getMushrooms(), snake.getStars());
 
 		scoreData.setChange();
 	}
-
->>>>>>> branch 'master' of https://github.com/TrangPhuongLam07/SnakeGame_Group07.git
 	public boolean getRunning() {
 		return snake.isRunning();
 	}

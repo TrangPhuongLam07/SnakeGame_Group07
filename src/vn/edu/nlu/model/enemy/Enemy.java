@@ -22,8 +22,5 @@ public abstract class Enemy implements CollisionBehavior{
 		yEnemy = random.nextInt((int) (sumOfSquareHeight)) * unit_size;
 	}
 
-	public void clearFood() {
-		xEnemy = -200;
-		yEnemy = -200;
 
-	}}
+	}

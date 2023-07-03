@@ -26,7 +26,7 @@ public class Swamp extends Enemy {
 //			swamp.randomBarrier();
 	//		OnVolume.getInstance().sound("..\\SnakeGame_Group07\\src\\data\\eatMushroom.wav");
 		}
-		return snake;}
+		return snake;}{
 			if ((snake.getX()[0] == xEnemy) && (snake.getY()[0] == yEnemy)) {
 			if (!isSlowedDown) {
 				isSlowedDown = true;
@@ -53,5 +53,5 @@ public class Swamp extends Enemy {
 
 		g.drawImage(iconHeadUp.getImage(), xEnemy, yEnemy, unit_size, unit_size, null);
 	}
-
+		}
 }}
