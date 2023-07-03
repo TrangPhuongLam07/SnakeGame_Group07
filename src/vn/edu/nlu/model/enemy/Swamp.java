@@ -8,28 +8,29 @@ import vn.edu.nlu.model.Snake;
 public class Swamp extends Enemy {
 	private boolean isSlowedDown;
 	private long slowDownStartTime;
+	private int numDecrease;
 
 	public Swamp(int screenWidth, int screenHeight, int unit_size) {
 		super(screenWidth, screenHeight, unit_size);
-		// TODO Auto-generated constructor stub
+		this.numDecrease = 100;
 	}
 
 	@Override
 	public Snake collision(Snake snake) {
-		// TODO Auto-generated method stub
+		//decrease speed
 		if ((snake.getX()[0] == xEnemy) && (snake.getY()[0] == yEnemy)) {
-			if (!isSlowedDown) {
+			if (isSlowedDown==false) {
 				isSlowedDown = true;
 				slowDownStartTime = System.currentTimeMillis();
-				snake.setSpeed(snake.getSpeed() / 2);
+				snake.setSpeed(snake.getSpeed() + numDecrease);
 			}
-//			swampEating++;
 			randomEnemy();
-//			OnVolume.getInstance().sound("..\\Snake_Game_ver2-master\\src\\data\\eatMushroom.wav");
 		}
+		
+		//return speed original after 5s
 		if (isSlowedDown && System.currentTimeMillis() - slowDownStartTime >= 5000) {
 			isSlowedDown = false;
-			snake.setSpeed(snake.getSpeed() * 2);
+			snake.setSpeed(snake.getSpeed() - numDecrease);
 		}
 		return snake;
 	}
