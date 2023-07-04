@@ -1,6 +1,10 @@
 package vn.edu.nlu.model.food;
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.Timer;
 
 import vn.edu.nlu.model.ImageFactory;
 import vn.edu.nlu.model.Snake;
@@ -14,13 +18,20 @@ public class Lightning extends Food{
 
 	@Override
 	public Snake eating(Snake snake) {
+		int speed = snake.getSpeed();
 		if((snake.getX()[0] == xFood) && (snake.getY()[0] == yFood)) {
-			if (snake.getSpeed() > 150) {
-				snake.setSpeed(snake.getSpeed()-50);
-			}
-//			energyEating++;
+			//EDIT
+			snake.setSpeed(speed - 50);;
+		    Timer timer = new Timer(5000, new ActionListener() {
+		        @Override
+		        public void actionPerformed(ActionEvent e) {
+		        	snake.setSpeed(speed + 50);;
+		        }
+		    });
+		    
+		    timer.setRepeats(false);
+		    timer.start();
 			randomFood();
-//			OnVolume.getInstance().sound("..\\Snake_Game_ver2-master\\src\\data\\beep-3.wav");
 		}
 		return snake;
 	}

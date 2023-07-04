@@ -3,6 +3,7 @@ package vn.edu.nlu.controller;
 import javax.swing.JOptionPane;
 import vn.edu.nlu.model.Menu;
 import vn.edu.nlu.view.GameFrame;
+import vn.edu.nlu.view.HelpFrame;
 import vn.edu.nlu.view.LevelFrame;
 import vn.edu.nlu.view.MenuFrame;
 import vn.edu.nlu.view.panel.level.LevelEasy;
@@ -39,6 +40,8 @@ public class ControllerMenu implements Menu {
 	@Override
 	public void helpGame() {
 		System.out.println("Help Game");
+		
+		new HelpFrame();
 	}
 
 	@Override
