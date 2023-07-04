@@ -1,11 +1,14 @@
 package vn.edu.nlu.view.panel;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import vn.edu.nlu.model.ImageFactory;
 
 public class PanelHelp extends JPanel{
 	private ImageIcon iconBack;
@@ -17,7 +20,7 @@ public class PanelHelp extends JPanel{
 		//background help
 		iconBgHelp = new ImageIcon("helpbg");
 		//button Back
-		ImageIcon iconBack = new ImageIcon("back");
+		ImageIcon iconBack = ImageFactory.createImageButton("back");
 		btBack = new JButton(iconBack);
 		btBack.setBorderPainted(false);
 		btBack.setContentAreaFilled(false);

@@ -9,7 +9,6 @@ public class Lightning extends Food{
 
 	public Lightning(int screenWidth, int screenHeight, int unit_size) {
 		super(screenWidth, screenHeight, unit_size);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

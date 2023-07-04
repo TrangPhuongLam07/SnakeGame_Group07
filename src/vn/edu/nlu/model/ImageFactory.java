@@ -92,7 +92,12 @@ public class ImageFactory {
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\swamp.png");
 		if ("swamp3".equals(name))
 			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\swamp.png");
+		
+		// wall
+		if ("wall".equals(name))
+			return new ImageIcon("..\\SnakeGame_team07\\src\\data\\wall.png");
 		System.out.println("No Image");
+		
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\body.png");
 
 	}
@@ -127,6 +132,10 @@ public class ImageFactory {
 
 	public static ImageIcon createImageBackgroundLevel() {
 		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\levelbg.png");
+	}
+	
+	public static ImageIcon createImageBackgroundHelp() {
+		return new ImageIcon("..\\SnakeGame_team07\\src\\data\\helpbg.png");
 	}
 
 	public static ImageIcon createImageButton(String name) {
