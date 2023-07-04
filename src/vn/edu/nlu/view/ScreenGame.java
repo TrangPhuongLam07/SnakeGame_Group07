@@ -17,10 +17,9 @@ public abstract class ScreenGame extends JFrame implements Runnable {
 	private GameState state = PauseGame.getInstance();;
 	protected ScreenGameController screenGameController;
 
-	public GameState getState() {
-		return state;
-	}
+	
 
+	
 	public void setState(GameState state) {
 		this.state = state;
 	}
