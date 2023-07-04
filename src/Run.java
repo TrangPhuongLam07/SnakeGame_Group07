@@ -1,5 +1,6 @@
 import vn.edu.nlu.controller.ControllerMenu;
 import vn.edu.nlu.controller.ControllerSnake;
+import vn.edu.nlu.controller.ScreenGameController;
 import vn.edu.nlu.view.GameFrame;
 import vn.edu.nlu.view.LevelFrame;
 import vn.edu.nlu.view.MenuFrame;
@@ -11,8 +12,10 @@ public class Run {
 		
 		MenuFrame menuframe = new MenuFrame();
 		new LevelFrame();
-//		
+	
 		ControllerMenu controllerMenu = new ControllerMenu(menuframe);
 		controllerMenu.newGame();
+		ScreenGameController screenGameController = new ScreenGameController();
+		screenGameController.startSnake();
 	}
 }
