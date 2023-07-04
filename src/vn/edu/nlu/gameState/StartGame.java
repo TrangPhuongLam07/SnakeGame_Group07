@@ -18,6 +18,6 @@ public class StartGame implements GameState{
 	@Override
 	public boolean doAction(ScreenGame screenGame) {
 		screenGame.setState(this);
-		return false;
+		return true;
 	}
 }

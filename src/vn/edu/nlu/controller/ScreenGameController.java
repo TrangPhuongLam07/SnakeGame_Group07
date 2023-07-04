@@ -16,13 +16,6 @@ public class ScreenGameController {
 	public ScreenGameController() {
 		this(screenGame);
 	}
-	
-	
-//	public void paintMap(Graphics g, String playerDecoratorName, String paintMapName) {
-//		playerChose.setPlayerDecoratorName(playerDecoratorName);
-//		paintMapObserver.chosePaintMap(g, paintMapName);
-//	}
-
 
 	public void startSnake() {
 		if(snake.running) {
